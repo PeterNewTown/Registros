@@ -52,6 +52,9 @@ def json_example():
 def index():
   return render_template('index.html')
 
+@app.route('/usr')
+def user():
+  return render_template('usuario.html')
 
 if __name__ == '__main__':
   app.run(debug=True, port=5000) #run app in debug mode on port 5000
