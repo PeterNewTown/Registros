@@ -7,27 +7,19 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
  </head>
-
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
  <body>
- 
-
  <div id="cadastrarm" class="cadsm">
  <form method="POST">
  <body>
  <label for="nome">Nome<label class="ast1" >*</label></label>
- 
  <input type="text" id="txt11" placeholder="Nome" required >
- 
  <label for="nome" class="cpsf">Cpf<label class="ast2">*</label></label>
- 
  <input type="number" placeholder="Cpf" id="cpf" class="cpf2" required>
  <br>
  <label>Cargo<label class="ast3" >*</label></label>
- 
  <select id="select" size="3" required >
  <option value=""></option>
  <option value="1" id="me">Medico</option>
@@ -77,23 +69,24 @@
 <br>
  <button id="cal" type="reset" class="canl">Cancelar</button>
  <button type="submit" id="xs" onclick="save()" class="cnfr">Confirmar</button>
- 
- 
 </body>
  </form>
  </div>
-
+ <body>
  <div id="rec" class="recc">
- 
+ <body>
  <form method="POST">
+
  <label for="nome">Email</label>
  <br>
  <input type="email" id="txt1" required >
  <br>
  <label for="nome">Senha</label>
  <br>
- <input type="password" required>
+ <input type="password" id="poss" required>
  <br>
+<input type="radio" id="modi" value="Medico" class="escolher" name="escolher" required><label>Medico</label><br>
+ <input type="radio" id="roci" value="Recepcionista" class="escolher" name="escolher" required><label>Recepcionista</label><br>
  <input type="checkbox" id="lembrar" autocomplete="off"><label>Lembrar senha?</label>
  <br>
  <button type="submit" id="cenlar" class="cenlr" >Cancelar</button>
@@ -102,9 +95,9 @@
  <a href="javascript:void(0)" id="cadastrar1">Cadastrar?</a> 
  <a href="">Esqueceu sua senha?</a>
  </form>
-
+</body>
  </div>
-
+</body>
 </html>
 <head>
  <style>
@@ -168,8 +161,6 @@
  display: none;
  }
  
- 
-
  th{
  padding: 5px;
  
@@ -230,6 +221,60 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+  
+var prox = document.getElementById('lo');
+prox.addEventListener('click',function(event){
+    if(document.getElementById('modi').checked == true && document.getElementById('poss').value != ''
+    &&document.getElementById('txt1').value != ''){
+        location.href = "dadosmedic.html";
+        event.preventDefault();
+    }else{
+        
+    }
+    if(document.getElementById('roci').checked == true && document.getElementById('poss').value != ''
+    &&document.getElementById('txt1').value != ''){
+        location.href = "dadosrece.html";
+        event.preventDefault();
+    }else{
+        
+    }
+
+});
+var fnnd = document.getElementById('poss') ;
+var fnnn = document.getElementById('lo') ;
+
+function validar18(event){
+
+var mtforte = /^\w{12}/;
+var forte = /^\w{6}/;
+var resultado5 = forte.exec(document.getElementById('poss').value)
+var resultado4 = mtforte.exec(document.getElementById('poss').value)
+if(resultado4 || resultado5){
+
+}else{
+document.getElementById('poss').value = '';
+event.preventDefault();
+
+}
+
+}
+fnnd.onchange = validar18;
+fnnn.addEventListener('click',function(event){
+var mtforte = /^\w{12}/;
+var forte = /^\w{6}/;
+var resultado5 = forte.exec(document.getElementById('poss').value)
+var resultado4 = mtforte.exec(document.getElementById('poss').value)
+if(resultado4 || resultado5){
+
+fnnd.setCustomValidity('').value;
+
+ document.getElementById('rec').style.display ='none';
+ event.preventDefault();
+}else{
+fnnd.setCustomValidity('Senha invalida').value;
+event.preventDefault();
+}
+});
 
  document.addEventListener('keyup',function(event){
 var x = document.getElementById('fix');
@@ -266,23 +311,18 @@ $("#me").on("click", function(){
 
  $("#eu").css("display","block");
  $("#fd").attr("required", true);
- 
+ document.getElementById('fd').disabled = false;
 });
 $("#re").on("click", function(){
  $("#eu").css("display","none");
  $("#fd").attr("required", false);
- 
+ document.getElementById('fd').disabled = true;
 });
  
 event.preventDefault();
 });
 
-$("#lo").on("click",function(event){
- 
- // $("#rec").css("display","none");
- //event.preventDefault();
-});
- $("#clicar").on("click",function(event){
+$("#clicar").on("click",function(event){
 $("#rec").css('display','block');
 event.preventDefault();
 });
@@ -302,21 +342,7 @@ $("#me").on("click", function(){
 
  $("#eu").css("display","block");
  $("#fd").attr("required", true);
- var ooo = document.getElementById('xs');
- ooo.addEventListener('click',function(event){
- if(document.getElementById('txt11').value == '' || document.getElementById('email').value == '' || document.getElementById('fd').value == ''|| document.getElementById('cpf').value == ''
- || document.getElementById('senha').value != document.getElementById('csenha').value || document.getElementById('telefone').value == ''|| document.getElementById('data').value == ''){
- 
- return; 
- }else{
- document.getElementById('cadastrarm').style.display ='none';
- document.getElementById('rec').style.display ='block';
-event.preventDefault();
- 
- }
- 
- 
- });
+
  var medicos = {
  Nome: document.getElementById("txt11").value,
  Cpf: document.getElementById("cpf").value,
@@ -326,7 +352,7 @@ event.preventDefault();
  Data: document.getElementById("data").value,
  Crm: document.getElementById("fd").value,
  };
- var crmm = document.getElementById('fd') ;
+var crmm = document.getElementById('fd') ;
 var crmmm = document.getElementById('xs') ;
 
 function validar9(event){
@@ -364,17 +390,12 @@ event.preventDefault();
 
 }
 });
-
- 
 });
 $("#re").on("click", function(){
  $("#eu").css("display","none");
  $("#fd").attr("required", false);
- 
-
 
 });
- 
 event.preventDefault();
 });
 
@@ -557,10 +578,7 @@ fn.setCustomValidity('').value;
 }else{
 fn.setCustomValidity('Senha invalida').value;
 event.preventDefault();
-
 }
-
 });
-
 </script>
 </html>
