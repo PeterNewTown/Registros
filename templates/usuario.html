@@ -9,15 +9,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<body>
+<div class="container">
  <div id="cadastrarm" class="cadsm">
-     <div class="container">
  <form method="POST">
- <body>
-     <label>Medico agendado<label class="ast20">*</label></label>
-     <input type="text" id='medico' placeholder="Medico agendado" required>
+ <label>Medico agendado<label class="ast20">*</label></label>
+ <input type="text" id='medico' placeholder="Medico agendado" required>
  <label for="nome">Nome<label class="ast1" >*</label></label>
- <input type="text" id="nomes" placeholder="Nome" required >
+ <input type="text" id="nomes" placeholder="Nome" required>
  <label for="nome" class="cpsf">Cpf<label class="ast2">*</label></label>
  <input type="number" placeholder="Cpf" id="cpf" class="cpf2" required>
  <br>
@@ -45,7 +43,6 @@
  </form>
 </div>
 </div>
-</body>
 <style>
         div.recc{
         font-family: Arial, Helvetica, sans-serif;
@@ -67,10 +64,7 @@
         -webkit-text-fill-color: white;
         background-color: red;
         }
-        button.cenlr{
-        -webkit-text-fill-color: white;
-        background-color: red;
-        }
+
         label.tels{
         padding-left: 4.5%;
         }
@@ -157,11 +151,16 @@
         color: red;
         -webkit-text-stroke-color: red;
         }
+        table{
+        border: 3px solid hsl(0, 4%, 87%);
+
+        }
         </style>
         <body>
-        <div class="container">
-            <div class="tabelas">
+    
+            <div id="tabl" class="tabelas">
               <table class="table table-hover">
+                <form method="POST">
                     <thead>
                             <tr>
                               <th>Medico agendado</th>
@@ -188,56 +187,14 @@
                               <td id="9"></td>
                             </tr>
                           </tbody>
+                        </form>
               </table>
-            </div>
+              <button id="voltar">Voltar</button>
             </div>
         </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
- var ooo = document.getElementById('xs');
- document.getElementById('7').style.display = 'none';
- ooo.addEventListener('click',function(event){
- if(document.getElementById('nomes').value == '' || document.getElementById('email').value == '' || document.getElementById('cpf').value == ''
-  || document.getElementById('telefone').value == ''|| document.getElementById('data').value == ''|| document.getElementById('medico').value == ''
-  || document.getElementById('local').value == ''){
- 
- }else{
-     document.getElementById('1').innerHTML = document.getElementById('medico').value;
-     document.getElementById('2').innerHTML = document.getElementById('nomes').value;
-     document.getElementById('3').innerHTML =  document.getElementById('data').value ;
-     document.getElementById('4').innerHTML = document.getElementById('email').value ;
-     document.getElementById('5').innerHTML = document.getElementById('cpf').value ;
-     document.getElementById('6').innerHTML = document.getElementById('telefone').value ;
-     document.getElementById('8').innerHTML = document.getElementById('local').value ;
-     event.preventDefault();
-     var today = new Date();
-var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-var dateTime = date+' '+time;
-document.getElementById('9').innerHTML = dateTime;
-    document.getElementById('9').style.display = 'block';
-     event.preventDefault();
-}
- });     
-document.addEventListener('keyup',function(event){
-var x = document.getElementById('fix');
-x.value = x.value.substring(0,2);
- });
- document.addEventListener('keyup',function(event){
-var x = document.getElementById('telefone');
-x.value = x.value.substring(0,8);
- });
- $('#cenlar').on('click',function(event){
- event.preventDefault();
- });
- document.addEventListener('keyup',function(event){
-var x = document.getElementById('cpf');
-x.value = x.value.substring(0,11);
- });
-$("#clicar").on("click",function(event){
-$("#rec").css('display','block');
-event.preventDefault();
-});
+
  function save(){
  var value = document.getElementById('cpf').value;
  localStorage.setItem('number',value);
@@ -270,10 +227,12 @@ event.preventDefault();
  localStorage.setItem('radio',value12);
  console.log(value12);
  }
- var x = document.getElementById('nomes') ;
- var z = document.getElementById('xs') ;
+ 
+ document.getElementById('tabl').style.display = 'none';
+var x = document.getElementById('nomes') ;
+var z = document.getElementById('xs') ;
 
-function validar3(event){
+ function validar3(event){
 
  var mtforte = /[a-zA-Z]/;
  
@@ -281,13 +240,20 @@ var resultado4 = mtforte.exec(document.getElementById('nomes').value)
 if(resultado4){
 
 }else{
- 
+  document.getElementById('nomes').value = '';
  event.preventDefault();
 
 }
 
 }
-
+var volter = document.getElementById('voltar');
+volter.addEventListener('click',function(event){
+  location.href = "dadosrece.html";
+});
+var calle = document.getElementById('cal');
+calle.addEventListener('click',function(event){
+  location.href = "dadosrece.html";
+});
 x.onchange = validar3;
 z.addEventListener('click',function(event){
 var mtforte = /[a-zA-Z]/;
@@ -295,7 +261,8 @@ var mtforte = /[a-zA-Z]/;
 var resultado4 = mtforte.exec(document.getElementById('nomes').value)
 if(resultado4){
 x.setCustomValidity('').value;
- 
+   
+     event.preventDefault();
 }else{
  x.setCustomValidity('Nome invalido').value;
  event.preventDefault();
@@ -315,7 +282,7 @@ var resultado4 = mtforte.exec(document.getElementById('telefone').value)
 if(resultado4){
 
 }else{
-
+document.getElementById('telefone').value = '';
 event.preventDefault();
 
 }
@@ -328,6 +295,7 @@ var mtforte = /^[0-9]{4}-?[0-9]{4}/;
 var resultado4 = mtforte.exec(document.getElementById('telefone').value)
 if(resultado4){
  xx.setCustomValidity('').value;
+
 }else{
  xx.setCustomValidity('Telefone invalido').value;
 event.preventDefault();
@@ -347,7 +315,7 @@ var resultado4 = mtforte.exec(document.getElementById('cpf').value)
 if(resultado4){
 
 }else{
-
+  document.getElementById('cpf').value == '';
 event.preventDefault();
 
 }
@@ -360,6 +328,8 @@ var mtforte = /^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/;
 var resultado4 = mtforte.exec(document.getElementById('cpf').value)
 if(resultado4){
  a.setCustomValidity('').value;
+ 
+     event.preventDefault();
 }else{
  a.setCustomValidity('Cpf invalido').value;
 event.preventDefault();
@@ -367,5 +337,133 @@ event.preventDefault();
 }
 
 }); 
+var o = document.getElementById('medico') ;
+var p = document.getElementById('xs') ;
+
+function validar5(event){
+
+ var mtforte = /[a-zA-Z]/;
+ 
+var resultado4 = mtforte.exec(document.getElementById('medico').value)
+if(resultado4){
+
+}else{
+  document.getElementById('medico').value = '';
+ event.preventDefault();
+
+}
+
+}
+
+o.onchange = validar5;
+p.addEventListener('click',function(event){
+var mtforte = /[a-zA-Z]/;
+var resultado4 = mtforte.exec(document.getElementById('medico').value)
+if(resultado4){
+o.setCustomValidity('').value;
+
+     event.preventDefault();
+}else{
+ o.setCustomValidity('Medico não disponível').value ;
+ event.preventDefault();
+
+}
+});
+document.addEventListener('keyup',function(event){
+var x = document.getElementById('fix');
+x.value = x.value.substring(0,2);
+ });
+ document.addEventListener('keyup',function(event){
+var x = document.getElementById('telefone');
+x.value = x.value.substring(0,8);
+ });
+ document.addEventListener('keyup',function(event){
+var x = document.getElementById('cpf');
+x.value = x.value.substring(0,11);
+ });
+
+var today = new Date();
+var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+
+var xxx = document.getElementById('fix') ;
+var zzz = document.getElementById('xs') ;
+
+function validar4(event){
+
+var mtforte = /^[0-9]{2}/;
+
+var resultado4 = mtforte.exec(document.getElementById('fix').value)
+if(resultado4){
+
+}else{
+  document.getElementById('fix').value = '';
+event.preventDefault();
+
+}
+
+}
+xxx.onchange = validar4;
+zzz.addEventListener('click',function(event){
+var mtforte = /^[0-9]{2}/;
+
+var resultado4 = mtforte.exec(document.getElementById('fix').value)
+if(resultado4){
+ xxx.setCustomValidity('').value;
+
+}else{
+ xxx.setCustomValidity('Telefone invalido').value;
+ document.getElementById('fix').value = '';
+event.preventDefault();
+
+}
+
+});
+
+document.getElementById('9').style.display = 'none';
+ var rtt = document.getElementById('xs');
+ rtt.addEventListener('click',function(event){
+   if(document.getElementById('nomes').value == ''||document.getElementById('telefone').value == ''
+   ||document.getElementById('cpf').value == ''   ||document.getElementById('data').value     == ''
+   ||document.getElementById('local').value == '' ||document.getElementById('email').value    == ''
+   ||document.getElementById('medico').value == ''||document.getElementById('sexo1').checked  == false
+   && document.getElementById('sexo2').checked == false||document.getElementById('fix').value == ''){
+document.getElementById('medico').value = '';
+document.getElementById('nomes').value  = '';
+document.getElementById('data').value  = '';
+document.getElementById('email').value  = '';
+document.getElementById('telefone').value  = '';
+document.getElementById('cpf').value  = '';
+document.getElementById('local').value = '';
+
+return;
+   }else{
+
+var today = new Date();
+var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+'||'+time;
+document.getElementById('1').innerHTML = document.getElementById('medico').value
+document.getElementById('2').innerHTML = document.getElementById('nomes').value;
+document.getElementById('3').innerHTML = document.getElementById('data').value;
+document.getElementById('4').innerHTML = document.getElementById('email').value;
+document.getElementById('6').innerHTML = document.getElementById('telefone').value;
+document.getElementById('5').innerHTML = document.getElementById('cpf').value;
+document.getElementById('8').innerHTML = document.getElementById('local').value;
+document.getElementById('9').innerHTML = dateTime;
+document.getElementById('cadastrarm').style.display = 'none';
+    document.getElementById('9').style.display = 'block';
+if(document.getElementById('sexo1').checked == true){
+  document.getElementById('7').innerHTML = document.getElementById('sexo1').value;
+}
+if(document.getElementById('sexo2').checked == true){
+  document.getElementById('7').innerHTML = document.getElementById('sexo2').value;
+}
+document.getElementById('tabl').style.display = 'block';
+}
+document.getElementById('cadastrarm').style.display = 'none';
+event.preventDefault();
+ });
 </script>   
 </html>
