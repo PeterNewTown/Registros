@@ -47,7 +47,6 @@ def json_example():
            The item at index 0 in the example list is: {}
            The boolean value is: {}'''.format(language, framework, python_version, example, boolean_test)
 
-
 @app.route('/')
 def index():
   return render_template('index.html')
@@ -55,6 +54,14 @@ def index():
 @app.route('/usr')
 def user():
   return render_template('usuario.html')
-
+  @app.route('/laus')
+def laus():
+  return render_template('laudo.html')
+  @app.route('/camp1')
+def campo1():
+  return render_template('dadosmedic.html')
+  @app.route('/camp2')
+def campo2():
+  return render_template('dadosrece.html')
 if __name__ == '__main__':
   app.run(debug=True, port=5000) #run app in debug mode on port 5000
