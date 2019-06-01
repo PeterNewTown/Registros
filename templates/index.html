@@ -456,7 +456,7 @@ csenha.onkeyup = validar;
 
 function validar3(event){
 
- var mtforte = /[a-zA-Z]/;
+ var mtforte = /[A-Z]{1}[a-z]/;;
  
 var resultado4 = mtforte.exec(document.getElementById('txt11').value)
 if(resultado4){
@@ -471,7 +471,7 @@ if(resultado4){
 
 x.onchange = validar3;
 z.addEventListener('click',function(event){
-var mtforte = /[a-zA-Z]/;
+var mtforte = /[A-Z]{1}[a-z]/;;
  
 var resultado4 = mtforte.exec(document.getElementById('txt11').value)
 if(resultado4){
