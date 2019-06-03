@@ -10,6 +10,27 @@
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <title>HOME</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ </head>
+ <body>
+ <nav class="navbar navbar-inverse">
+   <div class="container-fluid">
+     <div class="navbar-header">
+       <a class="navbar-brand" href="#">Login e cadastro</a>
+     </div>
+     <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" id="sair"><span></span class="glyphicon glyphicon-user">Sair</a></li>
+     </ul>
+   </div>
+ </nav>
  <body>
  <div id="cadastrarm" class="cadsm">
  <form method="POST">
@@ -73,10 +94,12 @@
  </form>
  </div>
  <body>
+
  <div id="rec" class="recc">
+        <div class="container-fluid">
+                <div class="row">
  <body>
  <form method="POST">
-
  <label for="nome">Email</label>
  <br>
  <input type="email" id="txt1" required >
@@ -85,7 +108,7 @@
  <br>
  <input type="password" id="poss" required>
  <br>
-<input type="radio" id="modi" value="Medico" class="escolher" name="escolher" required><label>Medico</label><br>
+ <input type="radio" id="modi" value="Medico" class="escolher" name="escolher" required><label>Medico</label><br>
  <input type="radio" id="roci" value="Recepcionista" class="escolher" name="escolher" required><label>Recepcionista</label><br>
  <input type="checkbox" id="lembrar" autocomplete="off"><label>Lembrar senha?</label>
  <br>
@@ -93,10 +116,13 @@
  <button type="submit" class="loss" id="lo">Login</button>
  <br>
  <a href="javascript:void(0)" id="cadastrar1">Cadastrar?</a> 
- <a href="">Esqueceu sua senha?</a>
+ <a href="Esqueceu.html">Esqueceu sua senha?</a>
  </form>
 </body>
+</div>
+</div>
  </div>
+
 </body>
 </html>
 <head>
@@ -579,6 +605,14 @@ fn.setCustomValidity('').value;
 fn.setCustomValidity('Senha invalida').value;
 event.preventDefault();
 }
+});
+var conler = document.getElementById('cenlar');
+conler.addEventListener('click',function(event){
+location.href = 'home.html'
+});
+var out = document.getElementById('sair');
+out.addEventListener('click',function(event){
+location.href = 'home.html';
 });
 </script>
 </html>
