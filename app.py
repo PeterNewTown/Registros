@@ -63,5 +63,11 @@ def campo1():
   @app.route('/camp2')
 def campo2():
   return render_template('dadosrece.html')
+  @app.route('/casa')
+def casa():
+  return render_template('home.html')
+  @app.route('/camp2')
+def campo2():
+  return render_template('Esqueceu.html')
 if __name__ == '__main__':
   app.run(debug=True, port=5000) #run app in debug mode on port 5000
