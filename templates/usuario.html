@@ -9,6 +9,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<body>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Menu do recepcionista</a>
+        </div>
+        <ul class="nav navbar-nav">
+
+          <li ><a  id="montar" href="#">Montar agenda do paciente</a></li>
+          <li><a href="#"id="agendas">Ver consultas agendadas</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" id="sair"><span></span class="glyphicon glyphicon-user">Log out</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+    </div>
+    </body>
 <div class="container">
  <div id="cadastrarm" class="cadsm">
  <form method="POST">
@@ -157,7 +176,6 @@
         }
         </style>
         <body>
-    
             <div id="tabl" class="tabelas">
               <table class="table table-hover">
                 <form method="POST">
@@ -195,6 +213,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
+    var ooo = document.getElementById('sair');
+    ooo.addEventListener('click',function(event){
+        location.href = "home.html";
+    });
  function save(){
  var value = document.getElementById('cpf').value;
  localStorage.setItem('number',value);
@@ -234,7 +256,7 @@ var z = document.getElementById('xs') ;
 
  function validar3(event){
 
- var mtforte = /[a-zA-Z]/;
+ var mtforte = /[A-Z]{1}[a-z]/;;
  
 var resultado4 = mtforte.exec(document.getElementById('nomes').value)
 if(resultado4){
@@ -256,7 +278,7 @@ calle.addEventListener('click',function(event){
 });
 x.onchange = validar3;
 z.addEventListener('click',function(event){
-var mtforte = /[a-zA-Z]/;
+var mtforte = /[A-Z]{1}[a-z]/;;
  
 var resultado4 = mtforte.exec(document.getElementById('nomes').value)
 if(resultado4){
@@ -342,7 +364,7 @@ var p = document.getElementById('xs') ;
 
 function validar5(event){
 
- var mtforte = /[a-zA-Z]/;
+ var mtforte = /[A-Z]{1}[a-z]/;;
  
 var resultado4 = mtforte.exec(document.getElementById('medico').value)
 if(resultado4){
@@ -357,7 +379,7 @@ if(resultado4){
 
 o.onchange = validar5;
 p.addEventListener('click',function(event){
-var mtforte = /[a-zA-Z]/;
+var mtforte = /[A-Z]{1}[a-z]/;;
 var resultado4 = mtforte.exec(document.getElementById('medico').value)
 if(resultado4){
 o.setCustomValidity('').value;
