@@ -6,6 +6,26 @@
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
                 </head>
+                <body>
+                    <nav class="navbar navbar-inverse">
+                      <div class="container-fluid">
+                        <div class="navbar-header">
+                          <a class="navbar-brand" href="#">Menu do médico</a>
+                        </div>
+                        <ul class="nav navbar-nav">
+                          <li class="active"><a href="#" id="casa">Home</a></li>
+                          <li ><a  id="escre" href="#">Escerver laudo</a></li>
+                          <li><a href="#">Ver consultas agendadas</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#" id="sair"><span></span class="glyphicon glyphicon-user">Log out</a></li>
+                        </ul>
+                      </div>
+                    </nav>
+                    <div class="container">
+
+                    </div>
+                    </body>
                 <div class="container">
                 <div id="cadastrarm" class="cadsm">
                 <form method="POST">
@@ -303,6 +323,17 @@ event.preventDefault();
                 x = window.print();
                 x.print();
             });
-            
+            var o = document.getElementById('escre');
+    o.addEventListener('click',function(event){
+        location.href = "laudo.html";
+    });
+    var oo = document.getElementById('casa');
+    oo.addEventListener('click',function(event){
+        location.href = "home.html";
+    });
+    var ooo = document.getElementById('sair');
+    ooo.addEventListener('click',function(event){
+        location.href = "home.html";
+    });
            </script>  
 </html>
