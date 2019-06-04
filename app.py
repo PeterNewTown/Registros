@@ -54,20 +54,27 @@ def index():
 @app.route('/usr')
 def user():
   return render_template('usuario.html')
-@app.route('/laus')
-def lauss():
+
+@app.route('/laudo')
+def laudo():
   return render_template('Laudo.html')
-@app.route('/camp1')
-def campo1():
+
+@app.route('/dadosmedic')
+def medico():
   return render_template('dadosmedic.html')
-@app.route('/camp2')
-def campo2():
+
+@app.route('/dadosrece')
+def recep():
   return render_template('dadosrece.html')
+
 @app.route('/casa')
 def casas():
   return render_template('home.html')
-@app.route('/camp2')
-def campo2():
+
+@app.route('/esqueceu')
+def esquecesenha():
   return render_template('Esqueceu.html')
-if __name__ == '__main__':
-  app.run(debug=True, port=5000) #run app in debug mode on port 5000
+
+if __name__ == '__main__':  
+  #run app in debug mode on port 5000
+  app.run(debug=True, port=5000) 

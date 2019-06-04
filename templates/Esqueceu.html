@@ -61,10 +61,8 @@ display: none;
   width: 40%;
   border: 1px solid black;
   font-size: 13px;
-
 }
 th{
-
   border: 1px solid black;
   font-size: 12px;
 }
@@ -78,7 +76,6 @@ button.confi{
     background-color: green;
 }
 button.confis{
-
     color: white;
     background-color: green;
 }
@@ -119,35 +116,27 @@ x.value = x.value.substring(0,12);
     });
     var retor = document.getElementById('vai');
     retor.addEventListener('click',function(event){
-        location.href = "bd2.html";
+        location.href = "/";
     });
     var out = document.getElementById('sair');
 out.addEventListener('click',function(event){
-location.href = 'home.html';
+location.href = 'casa';
 });
 var fn = document.getElementById('dige') ;
 var fnn = document.getElementById('con') ;
-
 function validar8(event){
-
-
 var forte = /^\w{6}/;
 var resultado5 = forte.exec(document.getElementById('dige').value)
 if(resultado5){
-
 }else{
-
 event.preventDefault();
-
 }
-
 }
 fn.onchange = validar8;
 fnn.addEventListener('click',function(event){
 var forte = /^\w{6}/;
 var resultado5 = forte.exec(document.getElementById('dige').value)
 if(resultado5){
-
 fn.setCustomValidity('').value;
 }else{
 fn.setCustomValidity('Codigo invalido').value;
@@ -156,29 +145,23 @@ event.preventDefault();
 });
 var conler = document.getElementById('cenlar');
 conler.addEventListener('click',function(event){
-location.href = 'home.html'
+location.href = 'casa'
 });
 var out = document.getElementById('sair');
 out.addEventListener('click',function(event){
-location.href = 'home.html';
+location.href = 'casa';
 });
 var cor = document.getElementById('corrig') ;
 var corr = document.getElementById('conn') ;
-
 function validar9(event){
-
 var mtforte = /^\w{12}/;
 var forte = /^\w{6}/;
 var resultado5 = forte.exec(document.getElementById('corrig').value)
 var resultado4 = mtforte.exec(document.getElementById('corrig').value)
 if(resultado5||resultado4){
-
 }else{
-
 event.preventDefault();
-
 }
-
 }
 cor.onchange = validar9;
 corr.addEventListener('click',function(event){
@@ -187,7 +170,6 @@ var mtforte = /^\w{12}/;
 var resultado5 = forte.exec(document.getElementById('corrig').value)
 var resultado4 = mtforte.exec(document.getElementById('corrig').value)
 if(resultado5){
-
 fn.setCustomValidity('').value;
 }else{
 fn.setCustomValidity('Senha invalida').value;
@@ -196,11 +178,10 @@ event.preventDefault();
 });
 var conler = document.getElementById('cenlar');
 conler.addEventListener('click',function(event){
-location.href = 'home.html'
+location.href = 'casa'
 });
 var out = document.getElementById('sair');
 out.addEventListener('click',function(event){
-location.href = 'home.html';
+location.href = 'casa';
 });
-
 </script>
