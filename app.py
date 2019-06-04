@@ -55,7 +55,7 @@ def index():
 def user():
   return render_template('usuario.html')
 @app.route('/laus')
-def laus():
+def lauss():
   return render_template('Laudo.html')
 @app.route('/camp1')
 def campo1():
@@ -64,7 +64,7 @@ def campo1():
 def campo2():
   return render_template('dadosrece.html')
 @app.route('/casa')
-def casa():
+def casas():
   return render_template('home.html')
 @app.route('/camp2')
 def campo2():
