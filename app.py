@@ -54,19 +54,19 @@ def index():
 @app.route('/usr')
 def user():
   return render_template('usuario.html')
-  @app.route('/laus')
+@app.route('/laus')
 def laus():
-  return render_template('laudo.html')
-  @app.route('/camp1')
+  return render_template('Laudo.html')
+@app.route('/camp1')
 def campo1():
   return render_template('dadosmedic.html')
-  @app.route('/camp2')
+@app.route('/camp2')
 def campo2():
   return render_template('dadosrece.html')
-  @app.route('/casa')
+@app.route('/casa')
 def casa():
   return render_template('home.html')
-  @app.route('/camp2')
+@app.route('/camp2')
 def campo2():
   return render_template('Esqueceu.html')
 if __name__ == '__main__':
