@@ -116,7 +116,7 @@
  <button type="submit" class="loss" id="lo">Login</button>
  <br>
  <a href="javascript:void(0)" id="cadastrar1">Cadastrar?</a> 
- <a href="Esqueceu.html">Esqueceu sua senha?</a>
+ <a href="esqueceu">Esqueceu sua senha?</a>
  </form>
 </body>
 </div>
@@ -129,7 +129,6 @@
  <style>
  div.recc{
  font-family: Arial, Helvetica, sans-serif;
-
  padding-left: 390px;
  padding-top: 90px;
  
@@ -164,7 +163,6 @@
  
  }
  label.cpsf{
-
  padding-left: 3%;
  }
  input.fixo{
@@ -252,37 +250,31 @@ var prox = document.getElementById('lo');
 prox.addEventListener('click',function(event){
     if(document.getElementById('modi').checked == true && document.getElementById('poss').value != ''
     &&document.getElementById('txt1').value != ''){
-        location.href = "dadosmedic.html";
+        location.href = "dadosmedic";
         event.preventDefault();
     }else{
         
     }
     if(document.getElementById('roci').checked == true && document.getElementById('poss').value != ''
     &&document.getElementById('txt1').value != ''){
-        location.href = "dadosrece.html";
+        location.href = "dadosrece";
         event.preventDefault();
     }else{
         
     }
-
 });
 var fnnd = document.getElementById('poss') ;
 var fnnn = document.getElementById('lo') ;
-
 function validar18(event){
-
 var mtforte = /^\w{12}/;
 var forte = /^\w{6}/;
 var resultado5 = forte.exec(document.getElementById('poss').value)
 var resultado4 = mtforte.exec(document.getElementById('poss').value)
 if(resultado4 || resultado5){
-
 }else{
 document.getElementById('poss').value = '';
 event.preventDefault();
-
 }
-
 }
 fnnd.onchange = validar18;
 fnnn.addEventListener('click',function(event){
@@ -291,9 +283,7 @@ var forte = /^\w{6}/;
 var resultado5 = forte.exec(document.getElementById('poss').value)
 var resultado4 = mtforte.exec(document.getElementById('poss').value)
 if(resultado4 || resultado5){
-
 fnnd.setCustomValidity('').value;
-
  document.getElementById('rec').style.display ='none';
  event.preventDefault();
 }else{
@@ -301,7 +291,6 @@ fnnd.setCustomValidity('Senha invalida').value;
 event.preventDefault();
 }
 });
-
  document.addEventListener('keyup',function(event){
 var x = document.getElementById('fix');
 x.value = x.value.substring(0,2);
@@ -321,7 +310,6 @@ x.value = x.value.substring(0,11);
 $("#rec").css('display','block');
 event.preventDefault();
 });
-
 $("#cadastrar1").on("click",function(event){
  $("#med").css("display","none");
  $("#cadastrarm").css("display","block");
@@ -334,7 +322,6 @@ $("#cal").on('click',function(event){
 });
 $("#select").on("change",function(event){
 $("#me").on("click", function(){
-
  $("#eu").css("display","block");
  $("#fd").attr("required", true);
  document.getElementById('fd').disabled = false;
@@ -347,12 +334,10 @@ $("#re").on("click", function(){
  
 event.preventDefault();
 });
-
 $("#clicar").on("click",function(event){
 $("#rec").css('display','block');
 event.preventDefault();
 });
-
 $("#cadastrar1").on("click",function(event){
  $("#med").css("display","none");
  $("#cadastrarm").css("display","block");
@@ -365,10 +350,8 @@ $("#cal").on('click',function(event){
 });
 $("#select").on("change",function(event){
 $("#me").on("click", function(){
-
  $("#eu").css("display","block");
  $("#fd").attr("required", true);
-
  var medicos = {
  Nome: document.getElementById("txt11").value,
  Cpf: document.getElementById("cpf").value,
@@ -380,9 +363,7 @@ $("#me").on("click", function(){
  };
 var crmm = document.getElementById('fd') ;
 var crmmm = document.getElementById('xs') ;
-
 function validar9(event){
-
 var mtforte = /^[0-9]{6}/;
 var forte = /^[0-9]{5}/;
 var fraco = /^[0-9]{4}/;
@@ -390,15 +371,10 @@ var resultado6 = fraco.exec(document.getElementById('fd').value)
 var resultado5 = forte.exec(document.getElementById('fd').value)
 var resultado4 = mtforte.exec(document.getElementById('fd').value)
 if(resultado4 || resultado5 || resultado6){
-
 }else{
-
 event.preventDefault();
-
 }
-
 }
-
 crmm.onchange = validar9;
 crmmm.addEventListener('click',function(event){
 var mtforte = /^[0-9]{6}/;
@@ -408,23 +384,19 @@ var resultado6 = fraco.exec(document.getElementById('fd').value)
 var resultado5 = forte.exec(document.getElementById('fd').value)
 var resultado4 = mtforte.exec(document.getElementById('fd').value)
 if(resultado4 || resultado5 || resultado6){
-
 crmm.setCustomValidity('').value;
 }else{
 crmm.setCustomValidity('Crm invalido').value;
 event.preventDefault();
-
 }
 });
 });
 $("#re").on("click", function(){
  $("#eu").css("display","none");
  $("#fd").attr("required", false);
-
 });
 event.preventDefault();
 });
-
  function save(){
  var value = document.getElementById('cpf').value;
  localStorage.setItem('number',value);
@@ -462,11 +434,9 @@ event.preventDefault();
  var value12 = document.getElementsByName('sexo2').value;
  localStorage.setItem('radio',value12);
  console.log(value12);
-
  }
 var senha = document.getElementById("senha")
 var csenha = document.getElementById("csenha");
-
 function validar(){
  if(senha.value != csenha.value) {
  csenha.setCustomValidity("Senhas diferentes!");
@@ -476,25 +446,18 @@ function validar(){
 }
 senha.onchange = validar;
 csenha.onkeyup = validar;
-
  var x = document.getElementById('txt11') ;
  var z = document.getElementById('xs') ;
-
 function validar3(event){
-
  var mtforte = /[A-Z]{1}[a-z]/;;
  
 var resultado4 = mtforte.exec(document.getElementById('txt11').value)
 if(resultado4){
-
 }else{
  
  event.preventDefault();
-
 }
-
 }
-
 x.onchange = validar3;
 z.addEventListener('click',function(event){
 var mtforte = /[A-Z]{1}[a-z]/;;
@@ -506,91 +469,61 @@ x.setCustomValidity('').value;
 }else{
  x.setCustomValidity('Nome invalido').value;
  event.preventDefault();
-
 }
-
 });
-
 var xx = document.getElementById('telefone') ;
 var zz = document.getElementById('xs') ;
-
 function validar4(event){
-
 var mtforte = /^[0-9]{4}-?[0-9]{4}/;
-
 var resultado4 = mtforte.exec(document.getElementById('telefone').value)
 if(resultado4){
-
 }else{
-
 event.preventDefault();
-
 }
-
 }
 xx.onchange = validar4;
 zz.addEventListener('click',function(event){
 var mtforte = /^[0-9]{4}-?[0-9]{4}/;
-
 var resultado4 = mtforte.exec(document.getElementById('telefone').value)
 if(resultado4){
  xx.setCustomValidity('').value;
 }else{
  xx.setCustomValidity('Telefone invalido').value;
 event.preventDefault();
-
 }
-
 });
-
 var a = document.getElementById('cpf') ;
 var b = document.getElementById('xs') ;
-
 function validar6(event){
-
 var mtforte = /^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/;
-
 var resultado4 = mtforte.exec(document.getElementById('cpf').value)
 if(resultado4){
-
 }else{
-
 event.preventDefault();
-
 }
-
 }
 a.onchange = validar6;
 b.addEventListener('click',function(event){
 var mtforte = /^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/;
-
 var resultado4 = mtforte.exec(document.getElementById('cpf').value)
 if(resultado4){
  a.setCustomValidity('').value;
 }else{
  a.setCustomValidity('Cpf invalido').value;
 event.preventDefault();
-
 }
-
 }); 
 var fn = document.getElementById('senha') ;
 var fnn = document.getElementById('xs') ;
-
 function validar8(event){
-
 var mtforte = /^\w{12}/;
 var forte = /^\w{6}/;
 var resultado5 = forte.exec(document.getElementById('senha').value)
 var resultado4 = mtforte.exec(document.getElementById('senha').value)
 if(resultado4 || resultado5){
-
 }else{
-
 event.preventDefault();
-
 }
-
 }
 fn.onchange = validar8;
 fnn.addEventListener('click',function(event){
@@ -599,7 +532,6 @@ var forte = /^\w{6}/;
 var resultado5 = forte.exec(document.getElementById('senha').value)
 var resultado4 = mtforte.exec(document.getElementById('senha').value)
 if(resultado4 || resultado5){
-
 fn.setCustomValidity('').value;
 }else{
 fn.setCustomValidity('Senha invalida').value;
@@ -608,11 +540,11 @@ event.preventDefault();
 });
 var conler = document.getElementById('cenlar');
 conler.addEventListener('click',function(event){
-location.href = 'home.html'
+location.href = 'casa'
 });
 var out = document.getElementById('sair');
 out.addEventListener('click',function(event){
-location.href = 'home.html';
+location.href = 'casa';
 });
 </script>
 </html>
