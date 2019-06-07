@@ -1,187 +1,400 @@
-<html>
+        <html>
         <head>
-                <meta charset="utf-8">
+                <meta charset="utf-8"> 
                 <meta name="viewport" content="width=device-width, initial-scale=1">
+               
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+               
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+               
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+               
                 </head>
+               
+                <meta charset="UTF-8">
+               
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+               
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+               
+                <html lang="en">
+
                 <head>
+
                 <nav class="navbar navbar-inverse">
+
                         <div class="container-fluid">
+
                           <div class="navbar-header">
+
                             <a class="navbar-brand" href="#">Login e cadastro</a>
+
                           </div>
+
                           <ul class="nav navbar-nav navbar-right">
+
                                  <li><a href="#" id="sair"><span></span class="glyphicon glyphicon-user">Sair</a></li>
+
                           </ul>
+
                         </div>
+
                       </nav>
+
                     </head>
+
     <table id="df" class="x">
+
         <form method="POST">
+
        <th><p class="cod" id="um">Um código foi enviado para seu email, por favor digite
+
        <br>o código para poder continuar </p><br></th><br>
+
     <th><p class="codd" id="inf">Informe seu e-mail para que seja enviado um código<br>de seis digitos, para alterar sua senha </p></th>
-    <th id="cc"><label>INFORME SEU EMAIL:</label><input type="email" required><button type="submit" id="en" class="envi">ENVIAR</button></th>
-    <th class="ss" id="dige"><label>DIGITE O CÓDIGO</label><input type="text" required><button type="submit" id="con" class="confi">CONFIRMAR</button></th>
+
+    <th id="cc"><label>Iforme seu email:</label><input id="email" type="email" required><button type="submit" onclick="validar28()" id="en" class="envi">ENVIAR</button></th>
+
+    <th class="ss" id="dige"><label>Digite o código</label><input type="text" id="codigo" required><button type="submit" id="con" class="confi">CONFIRMAR</button></th>
+
     <th><p class="coddd" id="new">Por favor digite sua nova senha</p></th>
-    <th class="ssf" id="diges"><label>Nova senha:</label><input type="password" id="corrig" required><button type="submit" id="conn" class="confis">CONFIRMAR</button></th>
+    <div>
+
+    <th class="ssf" id="diges"><label>Nova senha:</label><input type="password" id="minhass" required><button type="submit" id="conno" onclick="validar18()" class="confis">CONFIRMAR</button></th>
+</div>
     </form>
+
     </table>
+
     <div id="suce" class="sucesso">
+
         <img src="http://www.clker.com/cliparts/9/I/e/1/i/B/dark-green-check-mark-md.png" height="120" width="120">
+
     <p>Senha cadastrada com sucesso</p>
+
     <button class="ret" id="vai" type="submit">RETORNAR</button>
+
     </div>
+
  <style>
+
      button.ret{
+
          background-color: green;
+
          color: white;
+
      }
+
 div.sucesso{
+
 margin-left: 720px;
+
 margin-right: 720px;
+
 display: none;
+
      }
+
 th.ss{
+
 display: none;
+
 }
+
 th.ssf{
+
 display: none;
+
 }
+
 p.cod{
+
 display: none;
+
 }
+
 p.coddd{
+
 display: none;
+
 }
+
      table {
+
   margin-left: 320px;
+
   width: 40%;
+
   border: 1px solid black;
+
   font-size: 13px;
+
 }
+
 th{
+
   border: 1px solid black;
+
   font-size: 12px;
+
 }
+
 button.envi{
+
     color: white;
+
     background-color: green;
+
 }
+
 button.confi{
+
     display: none;
+
     color: white;
+
     background-color: green;
+
 }
+
 button.confis{
+
     color: white;
+
     background-color: green;
+
 }
+
  </style>   
-</html>
 
 <script>
-    document.addEventListener('keyup',function(event){
-var x = document.getElementById('corrig');
+
+document.addEventListener('keyup',function(event){
+var x = document.getElementById('minhass');
 x.value = x.value.substring(0,12);
  });
-    var validar = document.getElementById('en');
-    validar.addEventListener('click',function(event){
-    document.getElementById('um').style.display = 'block';     
-    document.getElementById('dige').style.display = 'block'; 
-    document.getElementById('con').style.display = 'block'; 
-    document.getElementById('cc').style.display = 'none'; 
-    document.getElementById('inf').style.display = 'none';
-    event.preventDefault(); 
+ document.addEventListener('keyup',function(event){
+var y = document.getElementById('codigo');
+y.value = y.value.substring(0,6);
+ });
+    var validarg = document.getElementById('en');
+
+    validarg.addEventListener('click',function(event){
+        if(document.getElementById('email').value == ''){
+
+        }else{
+document.getElementById('um').style.display = 'block';     
+document.getElementById('dige').style.display = 'block'; 
+document.getElementById('con').style.display = 'block'; 
+document.getElementById('cc').style.display = 'none'; 
+document.getElementById('inf').style.display = 'none';
+event.preventDefault(); 
+        }
     });
-    var validar = document.getElementById('con');
-    validar.addEventListener('click',function(event){
+
+    var validarre = document.getElementById('con');
+
+    validarre.addEventListener('click',function(event){
+if(document.getElementById('codigo').value == ''){
+
+}else{
     document.getElementById('new').style.display = 'block';     
-    document.getElementById('diges').style.display = 'block'; 
-    document.getElementById('con').style.display = 'block'; 
-    document.getElementById('cc').style.display = 'none'; 
-    document.getElementById('um').style.display = 'none'; 
-    document.getElementById('dige').style.display = 'none';
-    event.preventDefault();  
-    });
-    var validarr = document.getElementById('conn');
-    validarr.addEventListener('click',function(event){
+document.getElementById('diges').style.display = 'block'; 
+document.getElementById('con').style.display = 'block'; 
+document.getElementById('cc').style.display = 'none'; 
+document.getElementById('um').style.display = 'none'; 
+document.getElementById('dige').style.display = 'none';
+event.preventDefault();  
+}
+});
+
+    var validars = document.getElementById('conno');
+
+    validars.addEventListener('click',function(event){
+        if(document.getElementById('minhass').value == ''){
+
+        }else{
     document.getElementById('suce').style.display = 'block';     
     document.getElementById('diges').style.display = 'none'; 
     document.getElementById('new').style.display = 'none'; 
     document.getElementById('df').style.display = 'none'; 
-    event.preventDefault();  
-    });
+
+    event.preventDefault(); 
+        }
+        });
+
     var retor = document.getElementById('vai');
+
     retor.addEventListener('click',function(event){
+
         location.href = "/";
+
     });
+
     var out = document.getElementById('sair');
+
 out.addEventListener('click',function(event){
+
 location.href = 'casa';
+
 });
-var fn = document.getElementById('dige') ;
+
+var fn = document.getElementById('codigo') ;
+
 var fnn = document.getElementById('con') ;
+
 function validar8(event){
+
 var forte = /^\w{6}/;
-var resultado5 = forte.exec(document.getElementById('dige').value)
+
+var resultado5 = forte.exec(document.getElementById('codigo').value)
+
 if(resultado5){
+
 }else{
+document.getElementById('codigo').value = '';
 event.preventDefault();
+
 }
+
 }
+
 fn.onchange = validar8;
+
 fnn.addEventListener('click',function(event){
+
 var forte = /^\w{6}/;
-var resultado5 = forte.exec(document.getElementById('dige').value)
+
+var resultado5 = forte.exec(document.getElementById('codigo').value)
+
 if(resultado5){
+
 fn.setCustomValidity('').value;
+
 }else{
+
 fn.setCustomValidity('Codigo invalido').value;
+document.getElementById('codigo').value = '';
 event.preventDefault();
+
 }
+
 });
+
 var conler = document.getElementById('cenlar');
+
 conler.addEventListener('click',function(event){
+
 location.href = 'casa'
+
 });
+
 var out = document.getElementById('sair');
+
 out.addEventListener('click',function(event){
+
 location.href = 'casa';
+
 });
-var cor = document.getElementById('corrig') ;
-var corr = document.getElementById('conn') ;
-function validar9(event){
+var fnnd = document.getElementById('minhass') ;
+
+var fnnn = document.getElementById('conno') ;
+
+function validar18(event){
+
 var mtforte = /^\w{12}/;
+
 var forte = /^\w{6}/;
-var resultado5 = forte.exec(document.getElementById('corrig').value)
-var resultado4 = mtforte.exec(document.getElementById('corrig').value)
-if(resultado5||resultado4){
+
+var resultado5 = forte.exec(document.getElementById('minhass').value)
+
+var resultado4 = mtforte.exec(document.getElementById('minhass').value)
+
+if(resultado4 || resultado5){
+
+
 }else{
+
+document.getElementById('minhass').value = '';
+
 event.preventDefault();
+
 }
+
 }
-cor.onchange = validar9;
-corr.addEventListener('click',function(event){
-var forte = /^\w{6}/;
+
+fnnd.onchange = validar18;
+
+fnnn.addEventListener('click',function(event){
+
 var mtforte = /^\w{12}/;
-var resultado5 = forte.exec(document.getElementById('corrig').value)
-var resultado4 = mtforte.exec(document.getElementById('corrig').value)
+
+var forte = /^\w{6}/;
+
+var resultado5 = forte.exec(document.getElementById('minhass').value)
+
+var resultado4 = mtforte.exec(document.getElementById('minhass').value)
+
+if(resultado4 || resultado5){
+
+fnnd.setCustomValidity('').value;
+
+event.preventDefault();
+
+}else{
+
+fnnd.setCustomValidity('Senha invalida').value;
+document.getElementById('minhass').value = '';
+event.preventDefault();
+
+}
+
+});
+var fnndo = document.getElementById('minhass') ;
+
+var fnnno = document.getElementById('conno') ;
+
+function validar28(event){
+
+var forte = /^\w+@+\w/;
+
+var resultado5 = forte.exec(document.getElementById('email').value)
+
 if(resultado5){
-fn.setCustomValidity('').value;
+
 }else{
-fn.setCustomValidity('Senha invalida').value;
+
+document.getElementById('email').value = '';
+
 event.preventDefault();
+
 }
-});
-var conler = document.getElementById('cenlar');
-conler.addEventListener('click',function(event){
-location.href = 'casa'
-});
-var out = document.getElementById('sair');
-out.addEventListener('click',function(event){
-location.href = 'casa';
+
+}
+
+fnndo.onchange = validar28;
+fnnno.addEventListener('click',function(event){
+
+var forte = /^\w+@+\w/;
+
+var resultado5 = forte.exec(document.getElementById('email').value)
+
+if(resultado5){
+
+fnnd.setCustomValidity('').value;
+
+
+ event.preventDefault();
+
+}else{
+
+fnndo.setCustomValidity('Email invalido').value;
+document.getElementById('email').value = '';
+event.preventDefault();
+
+}
+
 });
 </script>
+</html>
