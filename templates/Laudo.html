@@ -1,303 +1,672 @@
 <html>
+
         <head>
+
                 <meta charset="utf-8">
+
                 <meta name="viewport" content="width=device-width, initial-scale=1">
+
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
                 </head>
+
                 <body>
+
                     <nav class="navbar navbar-inverse">
+
                       <div class="container-fluid">
+
                         <div class="navbar-header">
+
                           <a class="navbar-brand" href="#">Menu do médico</a>
+
                         </div>
+
                         <ul class="nav navbar-nav">
-                          <li class="active"><a href="#" id="casa">Home</a></li>
+
+
                           <li ><a  id="escre" href="#">Escerver laudo</a></li>
+
                           <li><a href="#">Ver consultas agendadas</a></li>
+
                         </ul>
+
                         <ul class="nav navbar-nav navbar-right">
+
                             <li><a href="#" id="sair"><span></span class="glyphicon glyphicon-user">Log out</a></li>
+
                         </ul>
+
                       </div>
+
                     </nav>
+
                     <div class="container">
 
+
+
                     </div>
+
                     </body>
+
                 <div class="container">
+
                 <div id="cadastrarm" class="cadsm">
+
                 <form method="POST">
+
                 <label>Clinica</label><input id="clin" type="text" required><br>
+
                 <label>Medico</label><input id="meds" type="text" required><br>
+
                 <label>Nome do paciente</label><input id="pasc" type="text" required><br>
+
                 <label>Peso</label><input id="pesos" type="number" required><br>
+
                 <label>Altura</label><input id="altus"  type="number" required><br>
+
                 <label>Escreva o laudo nesse campo:</label><br>
-                <input type="text" id="laes" class="fg" required>
+
+                <textarea rows="20" id="laes" cols="100" name="comment" form="usrform" required>
+                </textarea>
+
                 <br>
+
                 <button id="cal" type="reset" class="canl">Cancelar</button>
+
                 <button type="submit" id="xs" onclick="save()" class="cnfr">Confirmar</button> 
+
                 <p>Após o registro o laudo ele sera imediatamente posto para imprimir</p>
+
                 </form>
+
                 </div>
+
                 </div>
+
                 <body>
+
                         <div id="tabl" class="tabelas">
+
                           <table class="table table-hover">
+
                             <form method="POST">
+
                                 <p class="laus">LAUDO</p>
+
                                 <thead>
+
                                         <tr>
+
                                           <th>Clinica</th>
+
                                           <th>Medico</th>
+
                                           <th>Nome do paciente</th>
+
                                           <th>Data</th>
+
                                           <th>Peso</th>
+
                                           <th>Altura</th>
+
                                         </tr>
+
                                       </thead>
+
                                       <tbody>
+
                                         <tr>
+
                                           <td id="1"></td>
+
                                           <td id="2"></td>
+
                                           <td id="3"></td>
+
                                           <td id="4"></td>
+
                                           <td id="5"></td>
+
                                           <td id="6"></td>
+
                                     
+
                                         </tr>
+
                                       </tbody>
+
                                  
+
                                     </form>
+
                           </table>
-                          <textarea id="grande">
+
+                           <textarea class="reser" id="grande" cols="100" rows="20">
+                                                                                    
                           </textarea>
+
                           <button id="voltar">Voltar</button><button id="print" >Imprimir novamente laudo?</button>
+
                         </div>
+
                     </body>
+
                  </div>
+
                  <body>
+
                      <style>
+
                          input.fg{
+
                              padding-left: 120px;
+
                              padding-bottom: 120px;
+
                              padding-right: 120px;
+
                          }
+
                          p.laus{
+
                              color: black;
+
                              font-family: Arial, Helvetica, sans-serif;
+
                             margin-left: 320px;
+
                             margin-right: 320px;
+
                          }
+
                            div.recc{
+
         font-family: Arial, Helvetica, sans-serif;
+
      margin-left: 390px;
+
         margin-right: 390px;
+
         }
+
         input.cpf2{
+
         width: 15%;
+
         }
+
         button.cnfr{
+
         -webkit-text-fill-color: white;
+
         background-color: green;
+
         }
+
    
+
         button.canl{
+
         -webkit-text-fill-color: white;
+
         background-color: red;
+
         }
+
         table{
+
         border: 3px solid hsl(0, 4%, 87%);
+
          width: 45px;
+
          height: 60px;
+
         }
+        textarea.reser{
+         border: 1px solid transparent;
+         }
         </style>
+
         </body>
+
         <script>
-             document.getElementById('print').style.display = 'none';
-            document.getElementById('voltar').style.display = 'none';
+document.addEventListener('keyup',function(event){
+var y = document.getElementById('laes');
+y.value = y.value.substring(0,400);
+ });
+document.addEventListener('keyup',function(event){
+var x = document.getElementById('pesos');
+x.value = x.value.substring(0,3);
+ });
+ document.addEventListener('keyup',function(event){
+var y = document.getElementById('altus');
+y.value = y.value.substring(0,1);
+ });
+
+document.getElementById('print').style.display = 'none';
+
+document.getElementById('voltar').style.display = 'none';
+
 var x = document.getElementById('clin') ;
+
 var z = document.getElementById('xs') ;
+
 function validar4(event){
+
 var mtforte = /[a-zA-Z]/;
+
 var resultado4 = mtforte.exec(document.getElementById('clin').value)
+
 if(resultado4){
+
 }else{
+
   document.getElementById('clin').value = '';
+
 event.preventDefault();
+
 }
+
 }
+
 x.onchange = validar4;
+
 z.addEventListener('click',function(event){
+
 var mtforte = /[a-zA-Z]/;
+
 var resultado4 = mtforte.exec(document.getElementById('clin').value)
+
 if(resultado4){
+
  x.setCustomValidity('').value;
+
 }else{
+
  x.setCustomValidity('Clinica não encontrada').value;
+
  document.getElementById('clin').value = '';
+
 event.preventDefault();
+
 }
+
 });
+
 var xx = document.getElementById('meds') ;
+
 var zz = document.getElementById('xs') ;
+
 function validar5(event){
+
 var mtforte = /[A-Z]{1}[a-z]/;
+
 var resultado4 = mtforte.exec(document.getElementById('meds').value)
+
 if(resultado4){
+
 }else{
+
 document.getElementById('meds').value = '';
+
 event.preventDefault();
+
 }
+
 }
+
 xx.onchange = validar5;
+
 zz.addEventListener('click',function(event){
+
 var mtforte = /[A-Z]{1}[a-z]/;
+
 var resultado4 = mtforte.exec(document.getElementById('meds').value)
+
 if(resultado4){
+
 xx.setCustomValidity('').value;
+
 }else{
+
 xx.setCustomValidity('Nome invalido').value;
+
 document.getElementById('clin').value = '';
+
 event.preventDefault();
+
 }
+
 });
+
 var xxx = document.getElementById('pasc') ;
+
 var zzz = document.getElementById('xs') ;
+
 function validar4(event){
+
 var mtforte = /[A-Z]{1}[a-z]/;
+
 var resultado4 = mtforte.exec(document.getElementById('pasc').value)
+
 if(resultado4){
+
 }else{
+
   document.getElementById('pasc').value = '';
+
 event.preventDefault();
+
 }
+
 }
+
 xxx.onchange = validar4;
+
 zzz.addEventListener('click',function(event){
+
 var mtforte = /[A-Z]{1}[a-z]/;
+
 var resultado4 = mtforte.exec(document.getElementById('pasc').value)
+
 if(resultado4){
+
 xxx.setCustomValidity('').value;
+
 }else{
+
 xxx.setCustomValidity('Nome invalido').value;
+
 document.getElementById('pasc').value = '';
+
 event.preventDefault();
+
 }
+
 });
+
+
+
+
             function save(){
+
             var value = document.getElementById('clin').value;
+
             localStorage.setItem('text',value);
+
             console.log(value);
+
             var value2 = document.getElementById('meds').value;
+
             localStorage.setItem('text',value2);
+
             console.log(value2);
+
             var value5 = document.getElementById('pasc').value;
+
             localStorage.setItem('text',value5);
+
             console.log(value5);
+
             var value6 = document.getElementById('datas').value;
+
             localStorage.setItem('date',value6);
+
             console.log(value6);
+
             var value7 = document.getElementById('pesos').value;
+
             localStorage.setItem('number',value7);
+
             console.log(value7);
+
             var value8 = document.getElementById('altus').value;
+
             localStorage.setItem('number',value8);
+
             console.log(value8);
+
             var value8 = document.getElementById('laes').value;
+
             localStorage.setItem('number',value8);
+
             console.log(value8);
+
             }
+
             var volter = document.getElementById('voltar');
+
            volter.addEventListener('click',function(event){
+
              location.href = "dadosmedic";
+
            });
+
            var calle = document.getElementById('cal');
+
            calle.addEventListener('click',function(event){
+
              location.href = "dadosmedic";
+
            });
-var xxxx = document.getElementById('altus') ;
-var zzzz = document.getElementById('xs') ;
-function validar10(event){
+           var xxxx = document.getElementById('altus');
+           var zzzz = document.getElementById('xs');
+           function validar10(event){
+
 var mtforte = /[0-2]/;
+
 mask: '0,0'
+
 var resultado4 = mtforte.exec(document.getElementById('altus').value)
+
 if(resultado4){
+
 }else{
+
 document.getElementById('altus').value = '';
+
 event.preventDefault();
+
 }
+
 }
+
 xxxx.onchange = validar10;
+
 zzzz.addEventListener('click',function(event){
+
 var mtforte = /[0-2]/;
+
 var resultado4 = mtforte.exec(document.getElementById('altus').value)
+
 if(resultado4){
+
 xxxx.setCustomValidity('').value;
+
 }else{
+
 xxxx.setCustomValidity('Altura invalida').value;
+
 document.getElementById('altus').value = '';
+
 event.preventDefault();
+
 }
+
 });
+
+var pef = document.getElementById('pesos') ;
+var peef = document.getElementById('xs') ;
+
+
+
+function validar15(event){
+
+var mtforte = /[0-3]{1}[0-6]{1}[0]{1}/;
+var forte = /[0-9]{1}[0-9]{1}/;
+
+
+
+var resultado4 = mtforte.exec(document.getElementById('pesos').value)
+
+var resultado5 = forte.exec(document.getElementById('pesos').value)
+if(resultado4||resultado5){
+
+}else{
+
+document.getElementById('pesos').value = '';
+
+event.preventDefault();
+
+}
+
+}
+
+pef.onchange = validar15;
+
+peef.addEventListener('click',function(event){
+
+var mtforte = /[0-3]{1}[0-6]{1}[0]{1}/;
+var forte = /[0-9]{1}[0-9]{1}/;
+
+var resultado4 = mtforte.exec(document.getElementById('pesos').value)
+var resultado5 = forte.exec(document.getElementById('pesos').value)
+if(resultado4||resultado5){
+
+pef.setCustomValidity('').value;
+
+}else{
+
+pef.setCustomValidity('Peso invalido').value;
+
+document.getElementById('pesos').value = '';
+
+event.preventDefault();
+
+}
+
+});
+
            document.getElementById('tabl').style.display = 'none';
+
            document.getElementById('4').style.display = 'none';
+
             var rtt = document.getElementById('xs');
+
             rtt.addEventListener('click',function(event){
+
               if(document.getElementById('clin').value == ''||document.getElementById('meds').value == ''
+
               ||document.getElementById('pasc').value == '' ||document.getElementById('pesos').value == '' 
+
               ||document.getElementById('altus').value  == ''||document.getElementById('laes').value == ''){
+
                 document.getElementById('clin').value == '';
+
                 document.getElementById('meds').value == '';
+
                 document.getElementById('pasc').value == '';
+
                 document.getElementById('pesos').value == '';
+
                 document.getElementById('altus').value  == '';
+
                 document.getElementById('laes').value == '';
+
            return;
+
               }else{
+
            
+
            var today = new Date();
+
            var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+
            var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
            var dateTime = date+'||'+time;
+
            document.getElementById('1').innerHTML = document.getElementById('clin').value
+
            document.getElementById('2').innerHTML = document.getElementById('meds').value;
+
            document.getElementById('3').innerHTML = document.getElementById('pasc').value;
+
            document.getElementById('grande').innerHTML = document.getElementById('laes').value;
+           document.getElementById('grande').disabled = true;
+
            document.getElementById('5').innerHTML = document.getElementById('pesos').value;
+
            document.getElementById('6').innerHTML = document.getElementById('altus').value;
+
            document.getElementById('tabl').style.display = 'block';
+
            document.getElementById('cadastrarm').style.display = 'none';
+
            var today = new Date();
+
            var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+
            var dateTime = date;
+
            document.getElementById('4').innerHTML = dateTime;
+
            document.getElementById('4').style.display = 'block';
+
            window.print();
+
            event.preventDefault();
+
            document.getElementById('print').style.display = 'block';
+
            document.getElementById('voltar').style.display = 'block';
+
               }
+
             });
+
             var nova = document.getElementById('print');
+
             nova.addEventListener('click',function(event){
+
                 var x = document.getElementById('tabl');
+
                 x = window.print();
+
                 x.print();
+
             });
+
             var o = document.getElementById('escre');
+
     o.addEventListener('click',function(event){
+
         location.href = "laudo";
+
     });
+
     var oo = document.getElementById('casa');
+
     oo.addEventListener('click',function(event){
+
         location.href = "casa";
+
     });
+
     var ooo = document.getElementById('sair');
+
     ooo.addEventListener('click',function(event){
+
         location.href = "casa";
+
     });
+ 
            </script>  
+
 </html>
