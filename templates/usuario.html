@@ -1,432 +1,858 @@
-
 <html>
 
-        <head>
+<head>
 
-                <meta charset="utf-8">
+<meta charset="utf-8">
 
-                <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-                </head>
+</head>
 
-                <body>
+<meta charset="UTF-8">
 
-                    <nav class="navbar navbar-inverse">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                      <div class="container-fluid">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-                        <div class="navbar-header">
+<body>
 
-                          <a class="navbar-brand" href="#">Menu do médico</a>
+    <nav class="navbar navbar-inverse">
 
-                        </div>
+      <div class="container-fluid">
 
-                        <ul class="nav navbar-nav">
+        <div class="navbar-header">
 
+          <a class="navbar-brand" href="#">Menu do recepcionista</a>
 
-                          <li ><a  id="escre" href="#">Escerver laudo</a></li>
+        </div>
 
-                          <li><a href="#">Ver consultas agendadas</a></li>
-
-                        </ul>
-
-                        <ul class="nav navbar-nav navbar-right">
-
-                            <li><a href="#" id="sair"><span></span class="glyphicon glyphicon-user">Log out</a></li>
-
-                        </ul>
-
-                      </div>
-
-                    </nav>
-
-                    <div class="container">
+        <ul class="nav navbar-nav">
 
 
 
-                    </div>
+          <li ><a  id="montar" href="#">Montar agenda do paciente</a></li>
 
-                    </body>
+          <li><a href="#"id="agendas">Ver consultas agendadas</a></li>
 
-                <div class="container">
+        </ul>
 
-                <div id="cadastrarm" class="cadsm">
+        <ul class="nav navbar-nav navbar-right">
+
+            <li><a href="#" id="sair"><span></span class="glyphicon glyphicon-user">Log out</a></li>
+
+        </ul>
+
+      </div>
+
+    </nav>
+
+    <div class="container">
+
+    </div>
+
+    </body>
+
+<div class="container">
+
+ <div id="cadastrarm" class="cadsm">
+
+ <form method="POST">
+
+ <label>Medico<label class="ast20">*</label></label>
+
+ <input type="text" id='medico' placeholder="Medico agendado" required>
+
+ <label for="nome" class="nombre">Nome<label class="ast1" >*</label></label>
+
+ <input type="text" id="nomes" maxlength="197" placeholder="Nome" required>
+ <br>
+
+ <label for="nome" class="cpsf">Cpf<label class="ast2">*</label></label>
+
+ <input type="number" placeholder="Cpf" maxlength="11" id="cpf" class="cpf2" required>
+
+ <br>
+
+ <label for="nome" class="datn">Idade<label class="ast4" >*</label></label> 
+
+ <input type="date" id="data" max="2000-01-31" min="1950-01-31" required >
+
+ <label class="tels" for="nome">Telefone<label class="ast5" >*</label></label>
+
+ <input type="number" id="fix" class="fixo" placeholder="(xx)" maxlength="2" required><input type="number"placeholder="(xxxx-xxxx)" maxlength="8" id="telefone" required >
+
+ <br>
+
+ <label for="nome">Email<label class="ast6" >*</label></label>
+
+ <input type="email" placeholder="Email" id="email" required >
+
+ <br>
+
+ <label for="nome">Data e hora da consulta<label class="ast36" >*</label></label>
+
+ <input type="datetime-local" id="local" required >
+
+ <br>
+
+ <label>Sexo<label class="ast10" >*</label></label>
+
+ <br>
+
+ <label>Masculino</label>
+
+ <input type="radio" id="sexo2" value="Masculino" class="sexo" name="sexo" required>
+
+ <label>Feminino</label>
+
+ <input type="radio" id="sexo1" value="Feminino" class="sexo" name="sexo" required>
+
+ <br>
+
+<p>Campo obrigatório<label class="ast12">*</label></p>
+
+<button id="cal" type="reset" class="canl">Cancelar</button>
+
+<button type="submit" id="xs" onclick="save()" class="cnfr">Confirmar</button>  
+
+ </form>
+
+</div>
+
+</div>
+
+<style>
+
+        div.recc{
+
+        font-family: Arial, Helvetica, sans-serif;
+
+        padding-left: 390px;
+
+        padding-top: 90px;
+
+        }
+
+        input.cpf2{
+
+        width: 15%;
+
+        }
+
+        button.cnfr{
+
+        -webkit-text-fill-color: white;
+
+        background-color: green;
+
+        }
+
+        button.loss{
+
+        -webkit-text-fill-color: white;
+
+        background-color: green;
+
+        }
+
+        button.canl{
+
+        -webkit-text-fill-color: white;
+
+        background-color: red;
+
+        }
+
+        label.tels{
+
+        padding-left: 12.7%;
+
+        }
+        label.datn{
+
+padding-left: -9.5%;
+
+}
+        label.cels{
+
+        padding-left: 17.5%;
+
+        }
+
+        label.csn{
+
+        padding-left: 3.5%;
+
+        
+
+        }
+
+        label.cpsf{
+
+        padding-left: 32.5%;
+
+        }
+
+        label.nombre{
+
+padding-left: 11.5%;
+
+}
+        input.fixo{
+
+        width: 2%;
+
+        }
+
+        input.fixos{
+
+        width: 2%;
+
+        }
+
+        input.news{
+
+        width: 12%;
+
+        }
+
+        div.cfff{
+
+        display: none;
+
+        }
+
+        th{
+
+        padding: 5px;
+
+        padding-left: 50%;
+
+        text-align: left; 
+
+        align-content: center; 
+
+        }
+
+        img.cad{
+
+        padding-left: 35%;
+
+        }
+
+        label.ast1{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast12{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast2{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast20{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast3{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast4{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast5{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast6{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast36{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast7{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast8{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast9{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        label.ast10{
+
+        color: red;
+
+        -webkit-text-stroke-color: red;
+
+        }
+
+        table{
+
+        border: 3px solid hsl(0, 4%, 87%);
+
+        }
+
+        </style>
+
+        <body>
+
+            <div id="tabl" class="tabelas">
+
+              <table class="table table-hover">
 
                 <form method="POST">
 
-                <label>Clinica</label><input id="clin" type="text" required><br>
+                    <thead>
 
-                <label>Medico</label><input id="meds" type="text" required><br>
+                            <tr>
 
-                <label>Nome do paciente</label><input id="pasc" type="text" required><br>
+                              <th>Medico agendado</th>
 
-                <label>Peso</label><input id="pesos" type="number" required><br>
+                              <th>Nome</th>
 
-                <label>Altura</label><input id="altus"  type="number" required><br>
+                              <th>Data de nascimento</th>
 
-                <label>Escreva o laudo nesse campo:</label><br>
+                              <th>Email</th>
 
-                <textarea rows="20" id="laes" cols="100" name="comment" form="usrform" required>
-                </textarea>
+                              <th>Cpf</th>
 
-                <br>
+                              <th>Telefone</th>
 
-                <button id="cal" type="reset" class="canl">Cancelar</button>
+                              <th>Sexo</th>
 
-                <button type="submit" id="xs" onclick="save()" class="cnfr">Confirmar</button> 
+                              <th>Data e hora da consulta</th>
 
-                <p>Após o registro o laudo ele sera imediatamente posto para imprimir</p>
+                              <th>Data e hora do cadastro</th>
 
-                </form>
+                            </tr>
 
-                </div>
+                          </thead>
 
-                </div>
+                          <tbody>
 
-                <body>
+                            <tr>
 
-                        <div id="tabl" class="tabelas">
+                              <td id="1"></td>
 
-                          <table class="table table-hover">
+                              <td id="2"></td>
 
-                            <form method="POST">
+                              <td id="3"></td>
 
-                                <p class="laus">LAUDO</p>
+                              <td id="4"></td>
 
-                                <thead>
+                              <td id="5"></td>
 
-                                        <tr>
+                              <td id="6"></td>
 
-                                          <th>Clinica</th>
+                              <td id="7"></td>
 
-                                          <th>Medico</th>
+                              <td id="8"></td>
 
-                                          <th>Nome do paciente</th>
+                              <td id="9"></td>
 
-                                          <th>Data</th>
+                            </tr>
 
-                                          <th>Peso</th>
+                          </tbody>
 
-                                          <th>Altura</th>
+                        </form>
 
-                                        </tr>
+              </table>
 
-                                      </thead>
+              <button id="voltar">Voltar</button>
 
-                                      <tbody>
-
-                                        <tr>
-
-                                          <td id="1"></td>
-
-                                          <td id="2"></td>
-
-                                          <td id="3"></td>
-
-                                          <td id="4"></td>
-
-                                          <td id="5"></td>
-
-                                          <td id="6"></td>
-
-                                    
-
-                                        </tr>
-
-                                      </tbody>
-
-                                 
-
-                                    </form>
-
-                          </table>
-
-                           <textarea class="reser" id="grande" cols="100" rows="20">
-                                                                                    
-                          </textarea>
-
-                          <button id="voltar">Voltar</button><button id="print" >Imprimir novamente laudo?</button>
-
-                        </div>
-
-                    </body>
-
-                 </div>
-
-                 <body>
-
-                     <style>
-                         input.fg{
-                             padding-left: 120px;
-                             padding-bottom: 120px;
-                             padding-right: 120px;
-                         }
-                         p.laus{
-                             color: black;
-                             font-family: Arial, Helvetica, sans-serif;
-                            margin-left: 320px;
-                            margin-right: 320px;
-                         }
-                           div.recc{
-        font-family: Arial, Helvetica, sans-serif;
-     margin-left: 390px;
-        margin-right: 390px;
-        }
-        input.cpf2{
-        width: 15%;
-        }
-        button.cnfr{
-        -webkit-text-fill-color: white;
-        background-color: green;
-        }
-   
-        button.canl{
-        -webkit-text-fill-color: white;
-        background-color: red;
-        }
-        table{
-        border: 3px solid hsl(0, 4%, 87%);
-         width: 45px;
-         height: 60px;
-        }
-        textarea.reser{
-         border: 1px solid transparent;
-         }
-        </style>
+            </div>
 
         </body>
 
-        <script>
-document.addEventListener('keyup',function(event){
-var y = document.getElementById('laes');
-y.value = y.value.substring(0,400);
- });
-document.addEventListener('keyup',function(event){
-var x = document.getElementById('pesos');
-x.value = x.value.substring(0,3);
- });
- document.addEventListener('keyup',function(event){
-var y = document.getElementById('altus');
-y.value = y.value.substring(0,1);
- });
-document.getElementById('print').style.display = 'none';
-document.getElementById('voltar').style.display = 'none';
-var x = document.getElementById('clin') ;
-var z = document.getElementById('xs') ;
-function validar4(event){
-var mtforte = /[a-zA-Z]/;
-var resultado4 = mtforte.exec(document.getElementById('clin').value)
-if(resultado4){
-}else{
-  document.getElementById('clin').value = '';
-event.preventDefault();
-}
-}
-x.onchange = validar4;
-z.addEventListener('click',function(event){
-var mtforte = /[a-zA-Z]/;
-var resultado4 = mtforte.exec(document.getElementById('clin').value)
-if(resultado4){
- x.setCustomValidity('').value;
-}else{
- x.setCustomValidity('Clinica não encontrada').value;
- document.getElementById('clin').value = '';
-event.preventDefault();
-}
-});
-var xx = document.getElementById('meds') ;
-var zz = document.getElementById('xs') ;
-function validar5(event){
-var mtforte = /[A-Z]{1}[a-z]/;
-var resultado4 = mtforte.exec(document.getElementById('meds').value)
-if(resultado4){
-}else{
-document.getElementById('meds').value = '';
-event.preventDefault();
-}
-}
-xx.onchange = validar5;
-zz.addEventListener('click',function(event){
-var mtforte = /[A-Z]{1}[a-z]/;
-var resultado4 = mtforte.exec(document.getElementById('meds').value)
-if(resultado4){
-xx.setCustomValidity('').value;
-}else{
-xx.setCustomValidity('Nome invalido').value;
-document.getElementById('clin').value = '';
-event.preventDefault();
-}
-});
-var xxx = document.getElementById('pasc') ;
-var zzz = document.getElementById('xs') ;
-function validar4(event){
-var mtforte = /[A-Z]{1}[a-z]/;
-var resultado4 = mtforte.exec(document.getElementById('pasc').value)
-if(resultado4){
-}else{
-  document.getElementById('pasc').value = '';
-event.preventDefault();
-}
-}
-xxx.onchange = validar4;
-zzz.addEventListener('click',function(event){
-var mtforte = /[A-Z]{1}[a-z]/;
-var resultado4 = mtforte.exec(document.getElementById('pasc').value)
-if(resultado4){
-xxx.setCustomValidity('').value;
-}else{
-xxx.setCustomValidity('Nome invalido').value;
-document.getElementById('pasc').value = '';
-event.preventDefault();
-}
-});
-            function save(){
-            var value = document.getElementById('clin').value;
-            localStorage.setItem('text',value);
-            console.log(value);
-            var value2 = document.getElementById('meds').value;
-            localStorage.setItem('text',value2);
-            console.log(value2);
-            var value5 = document.getElementById('pasc').value;
-            localStorage.setItem('text',value5);
-            console.log(value5);
-            var value6 = document.getElementById('datas').value;
-            localStorage.setItem('date',value6);
-            console.log(value6);
-            var value7 = document.getElementById('pesos').value;
-            localStorage.setItem('number',value7);
-            console.log(value7);
-            var value8 = document.getElementById('altus').value;
-            localStorage.setItem('number',value8);
-            console.log(value8);
-            var value8 = document.getElementById('laes').value;
-            localStorage.setItem('number',value8);
-            console.log(value8);
-            }
-            var volter = document.getElementById('voltar');
-           volter.addEventListener('click',function(event){
-             location.href = "dadosmedic";
-           });
-           var calle = document.getElementById('cal');
-           calle.addEventListener('click',function(event){
-             location.href = "dadosmedic";
-           });
-           var xxxx = document.getElementById('altus');
-           var zzzz = document.getElementById('xs');
-           function validar10(event){
-var mtforte = /[0-2]/;
-mask: '0,0'
-var resultado4 = mtforte.exec(document.getElementById('altus').value)
-if(resultado4){
-}else{
-document.getElementById('altus').value = '';
-event.preventDefault();
-}
-}
-xxxx.onchange = validar10;
-zzzz.addEventListener('click',function(event){
-var mtforte = /[0-2]/;
-var resultado4 = mtforte.exec(document.getElementById('altus').value)
-if(resultado4){
-xxxx.setCustomValidity('').value;
-}else{
-xxxx.setCustomValidity('Altura invalida').value;
-document.getElementById('altus').value = '';
-event.preventDefault();
-}
-});
-var pef = document.getElementById('pesos') ;
-var peef = document.getElementById('xs') ;
-function validar15(event){
-var mtforte = /[0-3]{1}[0-6]{1}[0]{1}/;
-var forte = /[0-9]{1}[0-9]{1}/;
-var resultado4 = mtforte.exec(document.getElementById('pesos').value)
-var resultado5 = forte.exec(document.getElementById('pesos').value)
-if(resultado4||resultado5){
-}else{
-document.getElementById('pesos').value = '';
-event.preventDefault();
-}
-}
-pef.onchange = validar15;
-peef.addEventListener('click',function(event){
-var mtforte = /[0-3]{1}[0-6]{1}[0]{1}/;
-var forte = /[0-9]{1}[0-9]{1}/;
-var resultado4 = mtforte.exec(document.getElementById('pesos').value)
-var resultado5 = forte.exec(document.getElementById('pesos').value)
-if(resultado4||resultado5){
-pef.setCustomValidity('').value;
-}else{
-pef.setCustomValidity('Peso invalido').value;
-document.getElementById('pesos').value = '';
-event.preventDefault();
-}
-});
-           document.getElementById('tabl').style.display = 'none';
-           document.getElementById('4').style.display = 'none';
-            var rtt = document.getElementById('xs');
-            rtt.addEventListener('click',function(event){
-              if(document.getElementById('clin').value == ''||document.getElementById('meds').value == ''
-              ||document.getElementById('pasc').value == '' ||document.getElementById('pesos').value == '' 
-              ||document.getElementById('altus').value  == ''||document.getElementById('laes').value == ''){
-                document.getElementById('clin').value == '';
-                document.getElementById('meds').value == '';
-                document.getElementById('pasc').value == '';
-                document.getElementById('pesos').value == '';
-                document.getElementById('altus').value  == '';
-                document.getElementById('laes').value == '';
-           return;
-              }else{
-           
-           var today = new Date();
-           var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-           var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-           var dateTime = date+'||'+time;
-           document.getElementById('1').innerHTML = document.getElementById('clin').value
-           document.getElementById('2').innerHTML = document.getElementById('meds').value;
-           document.getElementById('3').innerHTML = document.getElementById('pasc').value;
-           document.getElementById('grande').innerHTML = document.getElementById('laes').value;
-           document.getElementById('grande').disabled = true;
-           document.getElementById('5').innerHTML = document.getElementById('pesos').value;
-           document.getElementById('6').innerHTML = document.getElementById('altus').value;
-           document.getElementById('tabl').style.display = 'block';
-           document.getElementById('cadastrarm').style.display = 'none';
-           var today = new Date();
-           var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-           var dateTime = date;
-           document.getElementById('4').innerHTML = dateTime;
-           document.getElementById('4').style.display = 'block';
-           window.print();
-           event.preventDefault();
-           document.getElementById('print').style.display = 'block';
-           document.getElementById('voltar').style.display = 'block';
-              }
-            });
-            var nova = document.getElementById('print');
-            nova.addEventListener('click',function(event){
-                var x = document.getElementById('tabl');
-                x = window.print();
-                x.print();
-            });
-            var o = document.getElementById('escre');
-    o.addEventListener('click',function(event){
-        location.href = "laudo";
-    });
-    var oo = document.getElementById('casa');
-    oo.addEventListener('click',function(event){
-        location.href = "casa";
-    });
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
     var ooo = document.getElementById('sair');
+
     ooo.addEventListener('click',function(event){
+
         location.href = "casa";
+
     });
+
+ function save(){
+
+ var value = document.getElementById('cpf').value;
+
+ localStorage.setItem('number',value);
+
+ console.log(value);
+
+ var value2 = document.getElementById('nomes').value;
+
+ localStorage.setItem('text',value2);
+
+ console.log(value2);
+
+ var value5 = document.getElementById('fd').value;
+
+ localStorage.setItem('number',value5);
+
+ console.log(value5);
+
+ var value6 = document.getElementById('data').value;
+
+ localStorage.setItem('date',value6);
+
+ console.log(value6);
+
+ var value7 = document.getElementById('email').value;
+
+ localStorage.setItem('email',value7);
+
+ console.log(value7);
+
+ var value8 = document.getElementById('fixs').value;
+
+ localStorage.setItem('number',value8);
+
+ console.log(value8);
+
+ var value9 = document.getElementById('fix').value;
+
+ localStorage.setItem('number',value9);
+
+ console.log(value9);
+
+ var value10 = document.getElementById('telefone').value;
+
+ localStorage.setItem('number',value10);
+
+ console.log(value10);
+
+ var value11 = document.getElementsByName('sexo1').value;
+
+ localStorage.setItem('radio',value11);
+
+ console.log(value11);
+
+ var value12 = document.getElementsByName('sexo2').value;
+
+ localStorage.setItem('radio',value12);
+
+ console.log(value12);
+
+ }
+
  
-           </script>  
+
+ document.getElementById('tabl').style.display = 'none';
+
+var x = document.getElementById('nomes') ;
+
+var z = document.getElementById('xs') ;
+
+ function validar3(event){
+
+ var mtforte = /[A-Z]{1}[a-z]/;;
+
+ 
+
+var resultado4 = mtforte.exec(document.getElementById('nomes').value)
+
+if(resultado4){
+
+}else{
+
+  document.getElementById('nomes').value = '';
+
+ event.preventDefault();
+
+}
+
+}
+
+var volter = document.getElementById('voltar');
+
+volter.addEventListener('click',function(event){
+
+  location.href = "dadosrece";
+
+});
+
+var calle = document.getElementById('cal');
+
+calle.addEventListener('click',function(event){
+
+  location.href = "dadosrece";
+
+});
+
+x.onchange = validar3;
+
+z.addEventListener('click',function(event){
+
+var mtforte = /[A-Z]{1}[a-z]/;;
+
+ 
+
+var resultado4 = mtforte.exec(document.getElementById('nomes').value)
+
+if(resultado4){
+
+x.setCustomValidity('').value;
+
+   
+
+     event.preventDefault();
+
+}else{
+
+ x.setCustomValidity('Nome invalido').value;
+
+ event.preventDefault();
+
+}
+
+});
+
+var xx = document.getElementById('telefone') ;
+
+var zz = document.getElementById('xs') ;
+
+function validar4(event){
+
+var mtforte = /^[0-9]{4}-?[0-9]{4}/;
+
+var resultado4 = mtforte.exec(document.getElementById('telefone').value)
+
+if(resultado4){
+
+}else{
+
+document.getElementById('telefone').value = '';
+
+event.preventDefault();
+
+}
+
+}
+
+xx.onchange = validar4;
+
+zz.addEventListener('click',function(event){
+
+var mtforte = /^[0-9]{4}-?[0-9]{4}/;
+
+var resultado4 = mtforte.exec(document.getElementById('telefone').value)
+
+if(resultado4){
+
+ xx.setCustomValidity('').value;
+
+}else{
+
+ xx.setCustomValidity('Telefone invalido').value;
+
+event.preventDefault();
+
+}
+
+});
+
+var a = document.getElementById('cpf') ;
+
+var b = document.getElementById('xs') ;
+
+function validar6(event){
+
+var mtforte = /^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/;
+
+var resultado4 = mtforte.exec(document.getElementById('cpf').value)
+
+if(resultado4){
+
+}else{
+
+  document.getElementById('cpf').value == '';
+
+event.preventDefault();
+
+}
+
+}
+
+a.onchange = validar6;
+
+b.addEventListener('click',function(event){
+
+var mtforte = /^[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/;
+
+var resultado4 = mtforte.exec(document.getElementById('cpf').value)
+
+if(resultado4){
+
+ a.setCustomValidity('').value;
+
+ 
+
+     event.preventDefault();
+
+}else{
+
+ a.setCustomValidity('Cpf invalido').value;
+
+event.preventDefault();
+
+}
+
+}); 
+
+var o = document.getElementById('medico') ;
+
+var p = document.getElementById('xs') ;
+
+function validar5(event){
+
+ var mtforte = /[A-Z]{1}[a-z]/;;
+
+ 
+
+var resultado4 = mtforte.exec(document.getElementById('medico').value)
+
+if(resultado4){
+
+}else{
+
+  document.getElementById('medico').value = '';
+
+ event.preventDefault();
+
+}
+
+}
+
+o.onchange = validar5;
+
+p.addEventListener('click',function(event){
+
+var mtforte = /[A-Z]{1}[a-z]/;;
+
+var resultado4 = mtforte.exec(document.getElementById('medico').value)
+
+if(resultado4){
+
+o.setCustomValidity('').value;
+
+     event.preventDefault();
+
+}else{
+
+ o.setCustomValidity('Medico não disponível').value ;
+
+ event.preventDefault();
+
+}
+
+});
+var today = new Date();
+
+var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+var dateTime = date+' '+time;
+
+var xxx = document.getElementById('fix') ;
+
+var zzz = document.getElementById('xs') ;
+
+function validar4(event){
+
+var mtforte = /^[0-9]{2}/;
+
+var resultado4 = mtforte.exec(document.getElementById('fix').value)
+
+if(resultado4){
+
+}else{
+
+  document.getElementById('fix').value = '';
+
+event.preventDefault();
+
+}
+
+}
+
+xxx.onchange = validar4;
+
+zzz.addEventListener('click',function(event){
+
+var mtforte = /^[0-9]{2}/;
+
+var resultado4 = mtforte.exec(document.getElementById('fix').value)
+
+if(resultado4){
+
+ xxx.setCustomValidity('').value;
+
+}else{
+
+ xxx.setCustomValidity('Telefone invalido').value;
+
+ document.getElementById('fix').value = '';
+
+event.preventDefault();
+
+}
+
+});
+
+document.getElementById('9').style.display = 'none';
+
+ var rtt = document.getElementById('xs');
+
+ rtt.addEventListener('click',function(event){
+
+   if(document.getElementById('nomes').value == ''||document.getElementById('telefone').value == ''
+
+   ||document.getElementById('cpf').value == ''   ||document.getElementById('data').value     == ''
+
+   ||document.getElementById('local').value == '' ||document.getElementById('email').value    == ''
+
+   ||document.getElementById('medico').value == ''||document.getElementById('sexo1').checked  == false
+
+   && document.getElementById('sexo2').checked == false||document.getElementById('fix').value == ''){
+
+document.getElementById('medico').value = '';
+
+document.getElementById('nomes').value  = '';
+
+document.getElementById('data').value  = '';
+
+document.getElementById('email').value  = '';
+
+document.getElementById('telefone').value  = '';
+
+document.getElementById('cpf').value  = '';
+
+document.getElementById('local').value = '';
+
+return;
+
+   }else{
+
+var today = new Date();
+
+var date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+var dateTime = date+'||'+time;
+
+document.getElementById('1').innerHTML = document.getElementById('medico').value
+
+document.getElementById('2').innerHTML = document.getElementById('nomes').value;
+
+document.getElementById('3').innerHTML = document.getElementById('data').value;
+
+document.getElementById('4').innerHTML = document.getElementById('email').value;
+
+document.getElementById('6').innerHTML = document.getElementById('telefone').value;
+
+document.getElementById('5').innerHTML = document.getElementById('cpf').value;
+
+document.getElementById('8').innerHTML = document.getElementById('local').value;
+
+document.getElementById('9').innerHTML = dateTime;
+
+document.getElementById('cadastrarm').style.display = 'none';
+
+    document.getElementById('9').style.display = 'block';
+
+if(document.getElementById('sexo1').checked == true){
+
+  document.getElementById('7').innerHTML = document.getElementById('sexo1').value;
+
+}
+
+if(document.getElementById('sexo2').checked == true){
+
+  document.getElementById('7').innerHTML = document.getElementById('sexo2').value;
+
+}
+
+document.getElementById('tabl').style.display = 'block';
+
+}
+
+document.getElementById('cadastrarm').style.display = 'none';
+
+event.preventDefault();
+
+ });
+
+</script>   
 
 </html>
