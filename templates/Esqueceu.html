@@ -55,12 +55,12 @@
 
     <th id="cc"><label>Iforme seu email:</label><input id="email" type="email" required><button type="submit" onclick="validar28()" id="en" class="envi">ENVIAR</button></th>
 
-    <th class="ss" id="dige"><label>Digite o código</label><input type="text" id="codigo" required><button type="submit" id="con" class="confi">CONFIRMAR</button></th>
+    <th class="ss" id="dige"><label>Digite o código</label><input type="text" maxlength="6" id="codigo" required><button type="submit" id="con" class="confi">CONFIRMAR</button></th>
 
     <th><p class="coddd" id="new">Por favor digite sua nova senha</p></th>
     <div>
 
-    <th class="ssf" id="diges"><label>Nova senha:</label><input type="password" id="minhass" required><button type="submit" id="conno" onclick="validar18()" class="confis">CONFIRMAR</button></th>
+    <th class="ssf" id="diges"><label>Nova senha:</label><input type="password" maxlength="12" id="minhass" required><button type="submit" id="conno" onclick="validar18()" class="confis">CONFIRMAR</button></th>
 </div>
     </form>
 
@@ -170,16 +170,7 @@ button.confis{
 
 <script>
 
-document.addEventListener('keyup',function(event){
-var x = document.getElementById('minhass');
-x.value = x.value.substring(0,12);
- });
- document.addEventListener('keyup',function(event){
-var y = document.getElementById('codigo');
-y.value = y.value.substring(0,6);
- });
     var validarg = document.getElementById('en');
-
     validarg.addEventListener('click',function(event){
         if(document.getElementById('email').value == ''){
 
