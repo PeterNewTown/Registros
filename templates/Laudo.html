@@ -1,5 +1,4 @@
 <html>
-
         <head>
 
                 <meta charset="utf-8">
@@ -28,10 +27,7 @@
 
                         <ul class="nav navbar-nav">
 
-
                           <li ><a  id="escre" href="#">Escerver laudo</a></li>
-
-                          <li><a href="#">Ver consultas agendadas</a></li>
 
                         </ul>
 
@@ -59,19 +55,19 @@
 
                 <form method="POST">
 
-                <label>Clinica</label><input id="clin" type="text" required><br>
+                <label>Clinica</label><input id="clin" type="text" maxlength="200" required><br>
 
-                <label>Medico</label><input id="meds" type="text" required><br>
+                <label>Medico</label><input id="meds" type="text" maxlength="197" required><br>
 
-                <label>Nome do paciente</label><input id="pasc" type="text" required><br>
+                <label>Nome do paciente</label><input id="pasc" maxlength="197" type="text" required><br>
 
-                <label>Peso</label><input id="pesos" type="number" required><br>
+                <label>Peso</label><input id="pesos" maxlength="3" type="number" required><br>
 
-                <label>Altura</label><input id="altus"  type="number" required><br>
+                <label>Altura</label><input id="altus" maxlength="2"  type="number" required><br>
 
                 <label>Escreva o laudo nesse campo:</label><br>
 
-                <textarea rows="20" id="laes" cols="100" name="comment" form="usrform" required>
+                <textarea rows="20" maxlength="2" id="laes" cols="100" name="comment" form="usrform" required>
                 </textarea>
 
                 <br>
@@ -134,13 +130,9 @@
 
                                           <td id="6"></td>
 
-                                    
-
                                         </tr>
 
                                       </tbody>
-
-                                 
 
                                     </form>
 
@@ -235,18 +227,6 @@
         </body>
 
         <script>
-document.addEventListener('keyup',function(event){
-var y = document.getElementById('laes');
-y.value = y.value.substring(0,400);
- });
-document.addEventListener('keyup',function(event){
-var x = document.getElementById('pesos');
-x.value = x.value.substring(0,3);
- });
- document.addEventListener('keyup',function(event){
-var y = document.getElementById('altus');
-y.value = y.value.substring(0,1);
- });
 
 document.getElementById('print').style.display = 'none';
 
