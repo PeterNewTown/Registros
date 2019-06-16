@@ -74,11 +74,11 @@
 
  <label for="nome">Nome<label class="ast1" >*</label></label>
 
- <input type="text" id="txt11" placeholder="Nome" required >
+ <input type="text" id="txt11" maxlength="197" placeholder="Nome" required >
 
  <label for="nome" class="cpsf">Cpf<label class="ast2">*</label></label>
 
- <input type="number" placeholder="Cpf" id="cpf" class="cpf2" required>
+ <input type="number" placeholder="Cpf" maxlength="11" id="cpf" class="cpf2" required>
 
  <br>
 
@@ -98,7 +98,7 @@
 
  <label id="crm">Crm<label class="ast9" >*</label></label>
 
- <input type="number" id="fd" placeholder="Crm" required >
+ <input type="number" maxlength="6" id="fd" placeholder="Crm" required >
 
  </div>
 
@@ -120,7 +120,7 @@
 
  
 
- <input type="number" id="fix" class="fixo" placeholder="(xx)" required><input type="number"placeholder="(xxxx-xxxx)" id="telefone" required >
+ <input type="number" id="fix" maxlength="2" class="fixo" placeholder="xx" required><input type="number"placeholder="(xxxx-xxxx)" maxlength="8" id="telefone" required >
 
  <br>
 
@@ -128,7 +128,7 @@
 
  
 
- <input type="number" id="fixs" class="fixos" placeholder="(xx)" ><input type="number" placeholder="(xxxx-xxxx)" id="Celular">
+ <input type="number" id="fixs" class="fixos" maxlength="2" placeholder="xx" ><input type="number" placeholder="(xxxx-xxxx)" maxlength="8" id="Celular">
 
  <br>
 
@@ -158,7 +158,7 @@
 
 
 
-<input type="password" placeholder="Senha" id="senha" required >
+<input type="password" placeholder="Senha" maxlength="12" id="senha" required >
 
 
 
@@ -166,7 +166,7 @@
 
 
 
-<input type="password" class="news" placeholder="Repetir senha" id="csenha" required >
+<input type="password" class="news" maxlength="12" placeholder="Repetir senha" id="csenha" required >
 
 <br>
 
@@ -584,43 +584,11 @@ event.preventDefault();
 
 });
 
- document.addEventListener('keyup',function(event){
-
-var x = document.getElementById('fix');
-
-x.value = x.value.substring(0,2);
-
- });
-
- document.addEventListener('keyup',function(event){
-
-var x = document.getElementById('telefone');
-
-x.value = x.value.substring(0,8);
-
- });
-
  $('#cenlar').on('click',function(event){
 
  event.preventDefault();
 
  });
-
- document.addEventListener('keyup',function(event){
-
-var x = document.getElementById('cpf');
-
-x.value = x.value.substring(0,11);
-
- });
-
- $("#clicar").on("click",function(event){
-
-$("#rec").css('display','block');
-
-event.preventDefault();
-
-});
 
 $("#cadastrar1").on("click",function(event){
 
