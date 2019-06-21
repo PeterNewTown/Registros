@@ -4,7 +4,9 @@ Não alterar por enquanto.
 Esse tutorial considera que o nome de usuario é aluno e o nome da máquina aluno-VirtualBox
 
 # Passo 0 - Instalar dependências com apt
-sudo apt-get install python3-venv
+```console
+aluno@aluno-VirtualBox:~$ sudo apt-get install python3-venv
+```
 
 # Passo 1 - Criar pasta de trabalho (pular caso já tenha feito)
 
@@ -28,18 +30,18 @@ aluno@aluno-VirtualBox:~/workspace$ git clone https://github.com/PeterNewTown/ta
 
 # Passo 2 - Criar ambiente virtual (pular caso já tenha feito)
 
-## 1.1 Confirme que você está na pasta workspace:
+## 2.1 Confirme que você está na pasta workspace:
 ```console
 aluno@aluno-VirtualBox:~/workspace$ pwd
 /home/aluno/workspace
 ```
 
-## 1.2 Acessar pasta do projeto e criar venv:
+## 2.2 Acessar pasta do projeto e criar venv:
 ```console
 aluno@aluno-VirtualBox:~/workspace$ cd tads-bd2191-registros
 aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ python3 -m venv venv
 ```
-## 1.3 Ativar venv:
+## 2.3 Ativar venv:
 ```console
 aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ source venv/bin/activate
 (venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$
@@ -54,14 +56,14 @@ aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ source venv/bin/activa
 (venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ pip install -r requirements.txt
 ```
 
-## variáveis de ambiente
+## 3.1 variáveis de ambiente
 ```console
 (venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ export FLASK_APP=consultorio.py
 
 (venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ export FLASK_ENV=development
 ```
 
-## Configurar banco de dados
+## 3.2 Configurar banco de dados
 ```console
 (venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ flask db init
 
@@ -71,7 +73,7 @@ aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ source venv/bin/activa
 ```
 # 4 - Executando a aplicação
 
-## executando
+## 4.1 executando
 ```console
 (venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ flask run
 ```
