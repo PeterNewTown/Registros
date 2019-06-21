@@ -1,0 +1,6 @@
+Flask==1.0.3
+requests==2.22.0
+flask-sqlalchemy
+flask-wtf
+flask-migrate
+flask-login

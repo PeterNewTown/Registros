@@ -45,3 +45,23 @@ aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ source venv/bin/activa
 (venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$
 ```
 
+
+# 3 Instalando dependências e configurando ambiente
+
+##Instalando dependências
+pip install -r requirements.txt
+
+## variáveis de ambiente
+export FLASK_APP=consultorio.py
+export FLASK_ENV=development
+
+## Configurar banco de dados
+flask db init
+flask db migrate
+flask db upgrade
+
+# 4 - Executando a aplicação
+
+## executando
+flask run
+
