@@ -1,41 +1,68 @@
-# tads-bd2191-registros
-Registro de medico e de pacientes 
+# Código temporário para ajustes futuros
+Não alterar por enquanto.
+
+Esse tutorial considera que o nome de usuario é aluno e o nome da máquina aluno-VirtualBox
+
+# Passo 0 - Instalar dependências com apt
+sudo apt-get install python3-venv
+
+# Passo 1 - Criar pasta de trabalho (pular caso já tenha feito)
+
+## 1.1 Confirme que você está na home:
+```console
+aluno@aluno-VirtualBox:~$ pwd
+/home/aluno
+```
+
+## 1.2 Crie a pasta de trabalho:
+```console
+aluno@aluno-VirtualBox:~$ mkdir workspace
+aluno@aluno-VirtualBox:~$ cd workspace
+aluno@aluno-VirtualBox:~/workspace$
+```
+
+## 1.3 Clone do projeto na pasta de trabalho:
+```console
+aluno@aluno-VirtualBox:~/workspace$ git clone https://github.com/PeterNewTown/tads-bd2191-registros.git
+```
+
+# Passo 2 - Criar ambiente virtual (pular caso já tenha feito)
+
+## 1.1 Confirme que você está na pasta workspace:
+```console
+aluno@aluno-VirtualBox:~/workspace$ pwd
+/home/aluno/workspace
+```
+
+## 1.2 Acessar pasta do projeto e criar venv:
+```console
+aluno@aluno-VirtualBox:~/workspace$ cd tads-bd2191-registros
+aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ python3 -m venv venv
+```
+## 1.3 Ativar venv:
+```console
+aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ source venv/bin/activate
+(venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$
+```
 
 
+# 3 Instalando dependências e configurando ambiente
 
-#Após modificações
+##Instalando dependências
+pip install -r requirements.txt
 
-git status   	(vai mostrar o estado das modificações)
+## variáveis de ambiente
+export FLASK_APP=consultorio.py
 
-git add .    	(adiciona as modificações)
+export FLASK_ENV=development
 
-git commit -a 	(descrever as modificações e dar commit)
+## Configurar banco de dados
+flask db init
+flask db migrate
+flask db upgrade
 
-git push 		(enviar o commit par ao servidor)
+# 4 - Executando a aplicação
 
+## executando
+flask run
 
-#Pegar modificações do servidor
-
-git pull
-
-#Primeiro acesso
-
-mkdir workspace
-
-cd workspace
-
-git clone https://github.com/PeterNewTown/tads-bd2191-registros.git
-
-cd tads-bd2191-registros
-
-
-
-#Dependencias
-
-sudo apt install python3-pip
-
-pip3 install flask
-
-#Executando o código
-
-python3 app.py
