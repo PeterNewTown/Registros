@@ -49,20 +49,29 @@ aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ source venv/bin/activa
 # 3 Instalando dependências e configurando ambiente
 
 ##Instalando dependências
-pip install -r requirements.txt
+```console
+(venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ pip install --upgrade pip
+(venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ pip install -r requirements.txt
+```
 
 ## variáveis de ambiente
-export FLASK_APP=consultorio.py
+```console
+(venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ export FLASK_APP=consultorio.py
 
-export FLASK_ENV=development
+(venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ export FLASK_ENV=development
+```
 
 ## Configurar banco de dados
-flask db init
-flask db migrate
-flask db upgrade
+```console
+(venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ flask db init
 
+(venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ flask db migrate
+
+(venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ flask db upgrade
+```
 # 4 - Executando a aplicação
 
 ## executando
-flask run
-
+```console
+(venv) aluno@aluno-VirtualBox:~/workspace/tads-bd2191-registros$ flask run
+```
